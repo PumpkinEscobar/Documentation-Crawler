@@ -16,9 +16,9 @@ aiofiles>=23.0.0
 flask>=2.3.3
 flask-cors>=4.0.0
 
-# Optional: Enable these if you need AI/ML features
-# openai>=1.0.0
-# anthropic>=0.3.0
-# faiss-cpu>=1.7.4
-# numpy>=1.24.0
-# pandas>=2.0.0 
+ Optional: Enable these if you need AI/ML features
+ openai>=1.0.0
+ anthropic>=0.3.0
+ faiss-cpu>=1.7.4
+ numpy>=1.24.0
+ pandas>=2.0.0 
