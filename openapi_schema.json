@@ -1,0 +1,234 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "AI Wizard Knowledge Base API",
+    "description": "Private knowledge base for AI development best practices",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
+  "paths": {
+    "/api/search": {
+      "get": {
+        "operationId": "searchKnowledge",
+        "summary": "Search the AI knowledge base",
+        "description": "Search through curated AI documentation and best practices",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query terms"
+          },
+          {
+            "name": "provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["openai", "anthropic", "google", "meta", "xai"]
+            },
+            "description": "Filter by AI provider"
+          },
+          {
+            "name": "content_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["api_docs", "guides", "examples", "best_practices"]
+            },
+            "description": "Filter by content type"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10
+            },
+            "description": "Maximum number of results"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query": {"type": "string"},
+                    "total_results": {"type": "integer"},
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "file": {"type": "string"},
+                          "score": {"type": "integer"},
+                          "snippet": {"type": "string"},
+                          "type": {"type": "string"},
+                          "size": {"type": "integer"},
+                          "last_modified": {"type": "string", "format": "date-time"}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - missing required parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {"type": "string"}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/content/{file_path}": {
+      "get": {
+        "operationId": "getContent",
+        "summary": "Get full file content",
+        "description": "Retrieve complete content of a specific knowledge file",
+        "parameters": [
+          {
+            "name": "file_path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Path to the knowledge file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "File content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "file": {"type": "string"},
+                    "content": {"type": "string"}
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "File not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {"type": "string"}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/providers": {
+      "get": {
+        "operationId": "getProviders",
+        "summary": "Get available providers and content types",
+        "responses": {
+          "200": {
+            "description": "Available options",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "providers": {
+                      "type": "array",
+                      "items": {"type": "string"}
+                    },
+                    "content_types": {
+                      "type": "array", 
+                      "items": {"type": "string"}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats": {
+      "get": {
+        "operationId": "getStats",
+        "summary": "Get knowledge base statistics",
+        "responses": {
+          "200": {
+            "description": "Statistics about the knowledge base",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_files": {"type": "integer"},
+                    "content_types": {
+                      "type": "object",
+                      "additionalProperties": {"type": "integer"}
+                    },
+                    "providers": {
+                      "type": "object",
+                      "additionalProperties": {"type": "integer"}
+                    },
+                    "total_size": {"type": "integer"}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/health": {
+      "get": {
+        "operationId": "healthCheck",
+        "summary": "Check API health status",
+        "responses": {
+          "200": {
+            "description": "Health status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {"type": "string"},
+                    "timestamp": {"type": "string", "format": "date-time"},
+                    "knowledge_files": {"type": "integer"}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} 

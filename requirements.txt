@@ -25,4 +25,8 @@ aiofiles>=23.0.0
 # Additional dependencies
 asyncio==3.4.3
 aiohttp==3.9.1
-lxml==5.0.0 
+lxml==5.0.0
+
+# API dependencies
+flask>=2.3.3
+flask-cors>=4.0.0 
