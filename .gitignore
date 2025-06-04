@@ -38,12 +38,31 @@ ai_wizard_env/
 .env.local
 *.log
 
-# Common data, output, and log directories/files
-knowledge_base/
+# Data, output, and cache directories
 data/
 logs/
 output/
 embeddings/
+knowledge_base/
+
+# Generated/cached files (exclude, but preserve configs)
+*_enhanced.json
+*_cache.json
+*_docs.json
+*_index.json
+*treasure.json
+extracted_*.json
+working_*.txt
+anthropic_prompt_guide.txt
+pure_prompt_guide.txt
+valuable_knowledge.json
+
+# Keep these important configs by uncommenting:
+# !mygpt_config.json
+# !openapi_schema.json
+# !requirements-secure.txt
+
+# Common data, output, and log directories/files
 *.json
 *.yaml
 *.txt
@@ -52,11 +71,7 @@ embeddings/
 # Large specific files (ensure these are not essential configs)
 # If any YAML/JSON/TXT here are *source configs*, list them with !pattern
 # e.g. !my_config.yaml
-anthropic_prompt_guide.txt
-working_content.txt
-extracted_ai_content.txt
 knowledge_base_enhanced.json
-valuable_knowledge.json
 extracted_knowledge.json
 clean_treasure.json
 openai_api_docs.json
