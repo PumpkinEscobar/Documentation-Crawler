@@ -1,0 +1,40 @@
+# Core dependencies with pinned versions
+playwright==1.45.0
+requests==2.31.0
+pyyaml==6.0.1
+python-dotenv==1.0.0
+
+# Data processing
+beautifulsoup4==4.12.3
+lxml==5.0.0
+
+# Async support
+aiohttp==3.9.5
+aiofiles==23.2.0
+
+# API dependencies
+flask==3.0.3
+flask-cors==4.0.1
+
+# Security dependencies
+cryptography==42.0.7
+validators==0.28.1
+keyring==25.2.1
+
+# Development and security testing
+bandit==1.7.8
+safety==3.2.3
+pytest==8.2.2
+pytest-security==0.1.1
+
+# Rate limiting and monitoring
+flask-limiter==3.8.0
+prometheus-client==0.20.0
+
+# Optional: Enable these if you need AI/ML features
+# openai==1.35.3
+# anthropic==0.28.0
+# faiss-cpu==1.8.0
+# numpy==1.26.4
+# pandas==2.2.2
+# tiktoken==0.7.0 

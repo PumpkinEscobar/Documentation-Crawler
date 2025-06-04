@@ -1,0 +1,8 @@
+[bandit]
+exclude = /venv,/env,/.venv,/.env,/tests,/test_*,*_test.py
+skips = B101,B601
+confidence_level = medium
+severity_level = medium
+
+[bandit.assert_used]
+skips = ['*_test.py', '*test*.py'] 

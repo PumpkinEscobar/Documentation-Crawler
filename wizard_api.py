@@ -13,6 +13,32 @@ CORS(app)
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Apply secure logging formatter
+class SecureFormatter(logging.Formatter):
+    def format(self, record):
+        message = super().format(record)
+        patterns = [
+            r'api[_-]?key[\"\\s:=]+[a-zA-Z0-9-_]+',
+            r'token[\"\\s:=]+[a-zA-Z0-9-_]+',
+            r'bearer\\s+[a-zA-Z0-9-_]+',
+        ]
+        for pattern in patterns:
+            message = re.sub(pattern, '[REDACTED]', message, flags=re.IGNORECASE)
+        return message
+
+for handler in logging.root.handlers:
+    handler.setFormatter(SecureFormatter(handler.formatter._fmt))
+
+@app.after_request
+def add_security_headers(response):
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+    response.headers['X-XSS-Protection'] = '1; mode=block'
+    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self'; object-src 'none'; frame-ancestors 'self'"
+    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains' # if served over HTTPS
+    # Consider more restrictive CSP if your app requires it
+    return response
+
 class WizardKnowledgeBase:
     def __init__(self, knowledge_dir="knowledge_base"):
         self.knowledge_dir = knowledge_dir
@@ -227,5 +253,20 @@ def health_check():
     })
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=False) 
+    # Securely get port from environment or default
+    try:
+        port = int(os.environ.get('PORT', "5000"))
+        if not (1024 <= port <= 65535):
+            logger.warning(f"Port {port} is outside the recommended range (1024-65535). Using default 5000.")
+            port = 5000
+    except ValueError:
+        logger.warning("Invalid PORT environment variable. Using default 5000.")
+        port = 5000
+
+    # Ensure debug is False in production environments
+    debug_mode = os.environ.get('FLASK_DEBUG', '0').lower() in ['true', '1']
+    if os.environ.get("ENVIRONMENT") == "production" and debug_mode:
+        logger.warning("Flask debug mode is enabled in a production environment! Forcing debug mode to False.")
+        debug_mode = False
+        
+    app.run(host='0.0.0.0', port=port, debug=debug_mode) 

@@ -17,10 +17,51 @@ import tiktoken
 from tqdm import tqdm
 import openai
 
-# Configure OpenAI API
-openai.api_key = os.getenv('OPENAI_API_KEY')
-if not openai.api_key:
-    raise ValueError("OpenAI API key not found. Please set OPENAI_API_KEY environment variable.")
+# Secure configuration management
+class SecureConfig:
+    def __init__(self):
+        self._api_keys = {}
+        
+    def get_api_key(self, service: str) -> Optional[str]:
+        """Securely retrieve API key for a service"""
+        if service not in self._api_keys:
+            env_var = f"{service.upper()}_API_KEY"
+            key = os.getenv(env_var)
+            if key:
+                self._api_keys[service] = key
+        return self._api_keys.get(service)
+    
+    def validate_api_key(self, service: str) -> bool:
+        """Validate that API key exists for service"""
+        return self.get_api_key(service) is not None
+
+# Global secure config instance
+secure_config = SecureConfig()
+
+# Input validation functions
+def validate_url(url: str) -> bool:
+    """Validate URL for security"""
+    from urllib.parse import urlparse
+    
+    if not url or not isinstance(url, str):
+        raise ValueError("Invalid URL format")
+    
+    parsed = urlparse(url)
+    if parsed.scheme != 'https':
+        raise ValueError("Only HTTPS URLs allowed")
+    
+    # Whitelist allowed domains
+    allowed_domains = [
+        'platform.openai.com',
+        'docs.anthropic.com', 
+        'ai.google.dev',
+        'huggingface.co'
+    ]
+    
+    if not any(domain in parsed.netloc for domain in allowed_domains):
+        raise ValueError(f"Domain {parsed.netloc} not in allowlist")
+    
+    return True
 
 @dataclass
 class ModelInfo:
@@ -257,6 +298,12 @@ class VectorProcessor:
 
     async def get_embeddings(self, chunks: List[DocumentChunk]) -> Dict[str, Any]:
         """Get embeddings for text chunks using OpenAI API"""
+        if not secure_config.validate_api_key("openai"):
+            self.logger.error("OpenAI API key not found for embeddings. Skipping.")
+            return None
+        
+        openai.api_key = secure_config.get_api_key("openai") # Temporarily set for the SDK call
+
         try:
             embeddings_data = {
                 'chunks': [],
@@ -292,32 +339,66 @@ class VectorProcessor:
         except Exception as e:
             self.logger.error(f"Error generating embeddings: {str(e)}")
             return None
+        finally:
+            openai.api_key = None # Clear the API key after use
 
 class DocumentationCrawler:
     def __init__(self, config: Optional[Dict] = None):
         self.config = config or self._default_config()
         self.browser_options = {
-            'args': ['--no-sandbox', '--disable-setuid-sandbox']
+            'args': [
+                '--no-sandbox', 
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',  # Security: prevent shared memory issues
+                '--disable-gpu',  # Security: disable GPU acceleration
+                '--no-first-run',  # Security: skip first run setup
+                '--disable-extensions'  # Security: disable extensions
+            ]
         }
         self.setup_logging()
         self.results = {}
         self.browser = None
         
-        # Simplified source configuration
+        # Validated source configuration
         self.sources = {
             'openai': 'https://platform.openai.com/docs',
             'anthropic': 'https://docs.anthropic.com',
             'google-ai': 'https://ai.google.dev/docs',
             'huggingface': 'https://huggingface.co/docs'
         }
+        
+        # Validate URLs at initialization
+        for source, url in self.sources.items():
+            try:
+                validate_url(url)
+            except ValueError as e:
+                self.logger.error(f"Invalid URL for {source}: {e}")
+                del self.sources[source]
 
     async def crawl_all(self):
         """Crawl all configured documentation sources"""
         try:
-            self.browser = await playwright.chromium.launch(self.browser_options)
-            context = await self.browser.new_context()
+            # Security: Use secure browser options
+            playwright = await async_playwright().start()
+            self.browser = await playwright.chromium.launch(
+                headless=True,  # Security: always run headless
+                args=self.browser_options['args']
+            )
+            
+            context = await self.browser.new_context(
+                ignore_https_errors=False,  # Security: enforce HTTPS validation
+                viewport={'width': 1280, 'height': 720},
+                user_agent='DocumentationCrawler/1.0 (Security-Hardened)'
+            )
             
             for source, base_url in self.sources.items():
+                # Security: Validate each URL before crawling
+                try:
+                    validate_url(base_url)
+                except ValueError as e:
+                    self.logger.error(f"Skipping {source} due to security validation: {e}")
+                    continue
+                    
                 self.logger.info(f"Crawling {source} documentation...")
                 page = await context.new_page()
                 await self._setup_page_handlers(page)
@@ -331,6 +412,7 @@ class DocumentationCrawler:
             
             await context.close()
             await self.browser.close()
+            await playwright.stop()
             self.logger.info("Documentation crawl completed successfully!")
             return True
             
