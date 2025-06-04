@@ -16,6 +16,7 @@ import numpy as np
 import tiktoken
 from tqdm import tqdm
 import openai
+from openai import AsyncOpenAI
 
 # Secure configuration management
 class SecureConfig:
@@ -321,9 +322,10 @@ class VectorProcessor:
                 batch = chunks[i:i + batch_size]
                 
                 # Get embeddings from OpenAI
-                response = await openai.Embedding.acreate(
-                    input=[chunk.content for chunk in batch],
-                    model=self.embedding_model
+                client = AsyncOpenAI()
+                response = await client.embeddings.create(
+                    model=self.embedding_model,
+                    input=[chunk.content for chunk in batch]
                 )
                 
                 # Store chunk data and embeddings

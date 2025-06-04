@@ -102,7 +102,7 @@ def show_status():
         print("❌ Progress tracking: Not initialized")
     
     # Check myGPT files
-    mygpt_files = ["doc_index.yaml", "mygpt_instructions.txt"]
+    mygpt_files = ["mygpt_doc_index.yaml", "mygpt_instructions.txt"]
     for file in mygpt_files:
         if Path(file).exists():
             print(f"✅ MyGPT {file}: Ready")

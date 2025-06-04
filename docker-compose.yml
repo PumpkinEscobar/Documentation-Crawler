@@ -9,27 +9,25 @@ services:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
     command: python wizard_cli.py crawl
-
-  doc_search:
-    build: .
-    ports:
-      - "8000:8000"
-    volumes:
-      - .:/app
-    environment:
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - GOOGLE_AI_KEY=${GOOGLE_AI_KEY}
-    command: uvicorn search_api:app --host 0.0.0.0 --port 8000 --reload
     profiles:
-      - api 
+      - crawl
 
   api:
     build: .
     ports:
-      - "5000:5000"
+      - "8000:8000"
     volumes:
       - ./knowledge_base:/app/knowledge_base
+      - ./data:/app/data
     environment:
-      - PORT=5000
-    restart: unless-stopped 
+      - PORT=8000
+      - DEBUG=false
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    command: python search_api.py
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3 

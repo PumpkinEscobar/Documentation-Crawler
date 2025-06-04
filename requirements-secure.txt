@@ -15,6 +15,8 @@ aiofiles==23.2.0
 # API dependencies
 flask==3.0.3
 flask-cors==4.0.1
+fastapi==0.111.0
+uvicorn==0.29.0
 
 # Security dependencies
 cryptography==42.0.7
@@ -31,10 +33,10 @@ pytest-security==0.1.1
 flask-limiter==3.8.0
 prometheus-client==0.20.0
 
-# Optional: Enable these if you need AI/ML features
-# openai==1.35.3
-# anthropic==0.28.0
-# faiss-cpu==1.8.0
-# numpy==1.26.4
-# pandas==2.2.2
-# tiktoken==0.7.0 
+# AI/ML dependencies (enabled for functionality)
+openai==1.35.3
+anthropic==0.28.0
+faiss-cpu==1.8.0
+numpy==1.26.4
+pandas==2.2.2
+tiktoken==0.7.0 

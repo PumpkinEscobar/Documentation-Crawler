@@ -4,7 +4,7 @@ import faiss
 from typing import List, Dict, Any, Optional
 import tiktoken
 from dataclasses import dataclass
-import openai
+from openai import AsyncOpenAI
 import asyncio
 from pathlib import Path
 
@@ -19,88 +19,88 @@ class SearchResult:
 
 class DocumentationSearch:
     def __init__(self, embeddings_file: str, index_file: str):
-        # Load embeddings and chunks
+        self.embeddings_file = embeddings_file
+        self.index_file = index_file
+        
         with open(embeddings_file, 'r') as f:
             self.embeddings_data = json.load(f)
-            
-        # Load FAISS index
-        self.index = faiss.read_index(index_file)
         
-        # Initialize embedding model
         self.embedding_model = self.embeddings_data['metadata']['model']
-        self.encoding = tiktoken.get_encoding("cl100k_base")
-        
+        self.index = faiss.read_index(index_file)
+        self.client = AsyncOpenAI()
+
     async def search(self, query: str, top_k: int = 5) -> List[SearchResult]:
-        """Search for relevant documentation chunks"""
+        """Search for relevant documentation"""
         try:
-            # Get query embedding
-            response = await openai.Embedding.acreate(
-                input=[query],
-                model=self.embedding_model
+            # Get query embedding using new API
+            response = await self.client.embeddings.create(
+                model=self.embedding_model,
+                input=query
             )
-            query_embedding = np.array([response.data[0].embedding]).astype('float32')
+            query_embedding = np.array([response.data[0].embedding], dtype=np.float32)
             
-            # Search index
+            # Search using FAISS
             scores, indices = self.index.search(query_embedding, top_k)
             
-            # Format results
             results = []
-            for score, idx in zip(scores[0], indices[0]):
-                chunk_data = self.embeddings_data['chunks'][idx]
-                result = SearchResult(
-                    content=chunk_data['content'],
-                    url=chunk_data['url'],
-                    source=chunk_data['source'],
-                    title=chunk_data['metadata']['title'],
+            for i, (score, idx) in enumerate(zip(scores[0], indices[0])):
+                if idx == -1:  # Invalid index
+                    continue
+                    
+                chunk = self.embeddings_data['chunks'][idx]
+                results.append(SearchResult(
+                    content=chunk['content'],
+                    url=chunk['url'],
+                    source=chunk['source'],
+                    title=chunk['metadata']['title'],
                     relevance_score=float(score),
-                    metadata=chunk_data['metadata']
-                )
-                results.append(result)
+                    metadata=chunk['metadata']
+                ))
             
             return results
-            
         except Exception as e:
             print(f"Error during search: {e}")
             return []
 
     async def semantic_search(self, query: str, filters: Optional[Dict[str, Any]] = None) -> List[SearchResult]:
-        """Search with optional filters"""
-        results = await self.search(query)
+        """Search with semantic understanding and optional filters"""
+        results = await self.search(query, top_k=20)
         
         if filters:
             filtered_results = []
             for result in results:
-                matches_filters = all(
-                    result.metadata.get(key) == value
+                if all(
+                    getattr(result, key, result.metadata.get(key)) == value
                     for key, value in filters.items()
-                )
-                if matches_filters:
+                ):
                     filtered_results.append(result)
-            return filtered_results
-            
-        return results
+            results = filtered_results
+        
+        return results[:5]  # Return top 5 after filtering
 
     def get_context_window(self, result: SearchResult, window_size: int = 2) -> str:
-        """Get surrounding context for a search result"""
-        try:
-            chunk_index = result.metadata['chunk_index']
-            source = result.source
-            section = result.metadata['section']
-            
-            # Find adjacent chunks
-            context_chunks = []
-            for i in range(max(0, chunk_index - window_size), chunk_index + window_size + 1):
-                chunk_id = f"{source}_{section}_{i}"
-                for chunk in self.embeddings_data['chunks']:
-                    if chunk['chunk_id'] == chunk_id:
-                        context_chunks.append(chunk['content'])
-                        break
-            
-            return "\n\n".join(context_chunks)
-            
-        except Exception as e:
-            print(f"Error getting context: {e}")
+        """Get context around a search result"""
+        # Find the chunk in our data
+        target_chunk_id = None
+        for i, chunk in enumerate(self.embeddings_data['chunks']):
+            if chunk['content'] == result.content:
+                target_chunk_id = i
+                break
+        
+        if target_chunk_id is None:
             return result.content
+        
+        # Get surrounding chunks
+        start_idx = max(0, target_chunk_id - window_size)
+        end_idx = min(len(self.embeddings_data['chunks']), target_chunk_id + window_size + 1)
+        
+        context_chunks = []
+        for i in range(start_idx, end_idx):
+            chunk = self.embeddings_data['chunks'][i]
+            prefix = ">>> " if i == target_chunk_id else "    "
+            context_chunks.append(f"{prefix}{chunk['content']}")
+        
+        return "\n".join(context_chunks)
 
     async def multi_query_search(self, queries: List[str], top_k: int = 3) -> Dict[str, List[SearchResult]]:
         """Search with multiple related queries"""

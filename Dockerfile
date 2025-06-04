@@ -49,12 +49,12 @@ COPY --chown=appuser:appgroup requirements-secure.txt .
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-# Install playwright system dependencies as root first
-RUN playwright install-deps chromium
-
 # Install Python dependencies into the virtual environment
 RUN pip install --no-cache-dir -r requirements-secure.txt
 RUN pip install playwright # Playwright Python package
+
+# Install playwright system dependencies as root first
+RUN playwright install-deps chromium
 
 # Copy the rest of the application as the appuser
 COPY --chown=appuser:appgroup . .
@@ -70,4 +70,4 @@ EXPOSE 5000
 # CMD curl -f http://localhost:5000/health || exit 1
 
 # Command to run the API
-CMD ["python", "wizard_api.py"] 
+CMD ["python", "search_api.py"] 
