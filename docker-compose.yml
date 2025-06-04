@@ -23,3 +23,13 @@ services:
     command: uvicorn search_api:app --host 0.0.0.0 --port 8000 --reload
     profiles:
       - api 
+
+  api:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./knowledge_base:/app/knowledge_base
+    environment:
+      - PORT=5000
+    restart: unless-stopped 

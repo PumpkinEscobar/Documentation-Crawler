@@ -3,6 +3,7 @@ FROM python:3.11-slim
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
+    build-essential \
     wget \
     gnupg \
     && rm -rf /var/lib/apt/lists/*
@@ -36,7 +37,7 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /app
 
-# Copy requirements first for better caching
+# Copy only the requirements file first to leverage Docker cache
 COPY requirements.txt .
 
 # Install Python dependencies
@@ -50,5 +51,8 @@ RUN pip install playwright && \
 # Copy the rest of the application
 COPY . .
 
-# Run the crawler
-CMD ["python", "wizard_cli.py", "crawl"] 
+# Expose the port the app runs on
+EXPOSE 5000
+
+# Command to run the API
+CMD ["python", "wizard_api.py"] 
