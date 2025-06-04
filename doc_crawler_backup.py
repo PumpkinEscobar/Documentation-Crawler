@@ -296,9 +296,9 @@ class VectorProcessor:
 class DocumentationCrawler:
     def __init__(self, config: Optional[Dict] = None):
         self.config = config or self._default_config()
-        self.browser_options = {
+        self.browser_options = self.config.get('browser_options', {
             'args': ['--no-sandbox', '--disable-setuid-sandbox']
-        }
+        })
         self.setup_logging()
         self.knowledge_map = {}
         self.vector_processor = VectorProcessor()

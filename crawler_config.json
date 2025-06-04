@@ -1,0 +1,15 @@
+{
+    "browser_options": {
+        "args": ["--no-sandbox", "--disable-setuid-sandbox"]
+    },
+    "crawler": {
+        "max_depth": 3,
+        "timeout": 30000,
+        "wait_for": 5000
+    },
+    "output": {
+        "knowledge_base": "knowledge_base.json",
+        "embeddings": "embeddings.json",
+        "doc_index": "doc_index.yaml"
+    }
+} 

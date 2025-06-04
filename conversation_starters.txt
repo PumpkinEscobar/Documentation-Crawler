@@ -1,0 +1,11 @@
+Design an enterprise AI agent using Anthropic's composable framework + current OpenAI APIs
+
+Apply Google's systematic prompting methodology to optimize Claude for my specific use case
+
+Create a fine-tuning strategy using CeADAR's pipeline with current provider capabilities
+
+Analyze my AI opportunity using BCG methodology + technical feasibility from live docs
+
+Build a production deployment plan using OpenAI enterprise lessons + current best practices
+
+Compare multi-agent architectures across providers using both strategic and technical lenses

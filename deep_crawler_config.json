@@ -1,0 +1,140 @@
+{
+  "deep_crawl_mode": true,
+  "target_content_types": [
+    "implementation_guides",
+    "tutorials",
+    "code_examples",
+    "best_practices",
+    "use_cases",
+    "troubleshooting"
+  ],
+  "sources": {
+    "openai": {
+      "priority_sections": [
+        "https://platform.openai.com/docs/guides",
+        "https://platform.openai.com/docs/tutorials",
+        "https://platform.openai.com/docs/examples",
+        "https://cookbook.openai.com/examples",
+        "https://platform.openai.com/docs/guides/prompt-engineering",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://platform.openai.com/docs/guides/fine-tuning",
+        "https://platform.openai.com/docs/guides/assistants",
+        "https://platform.openai.com/docs/guides/vision",
+        "https://platform.openai.com/docs/guides/embeddings",
+        "https://platform.openai.com/docs/guides/batch",
+        "https://cookbook.openai.com/examples/how_to_work_with_large_language_models",
+        "https://cookbook.openai.com/examples/how_to_build_a_chatbot",
+        "https://cookbook.openai.com/examples/how_to_use_embeddings",
+        "https://cookbook.openai.com/examples/how_to_format_inputs_to_chatgpt_models"
+      ],
+      "crawl_patterns": [
+        "/docs/guides/*",
+        "/docs/tutorials/*",
+        "/docs/examples/*",
+        "/examples/*",
+        "/how-to/*"
+      ],
+      "content_selectors": [
+        "article",
+        "main",
+        ".markdown-body",
+        ".content",
+        ".documentation"
+      ]
+    },
+    "anthropic": {
+      "priority_sections": [
+        "https://docs.anthropic.com/claude/docs/prompt-engineering",
+        "https://docs.anthropic.com/claude/docs/guide-to-anthropics-prompt-engineering-resources",
+        "https://docs.anthropic.com/claude/docs/use-cases",
+        "https://docs.anthropic.com/claude/docs/vision",
+        "https://docs.anthropic.com/claude/docs/tool-use",
+        "https://docs.anthropic.com/claude/docs/claude-for-sheets",
+        "https://docs.anthropic.com/claude/docs/examples",
+        "https://docs.anthropic.com/claude/docs/helper-metaprompt-experimental"
+      ],
+      "crawl_patterns": [
+        "/claude/docs/prompt-engineering*",
+        "/claude/docs/use-cases*",
+        "/claude/docs/examples*",
+        "/claude/docs/vision*",
+        "/claude/docs/tool-use*"
+      ]
+    },
+    "google_ai": {
+      "priority_sections": [
+        "https://ai.google.dev/docs/prompt_best_practices",
+        "https://ai.google.dev/docs/concepts",
+        "https://ai.google.dev/tutorials",
+        "https://ai.google.dev/examples",
+        "https://ai.google.dev/docs/multimodal_concepts",
+        "https://ai.google.dev/docs/function_calling",
+        "https://ai.google.dev/docs/embeddings_guide"
+      ],
+      "crawl_patterns": [
+        "/docs/prompt*",
+        "/tutorials/*",
+        "/examples/*",
+        "/docs/concepts*",
+        "/docs/multimodal*"
+      ]
+    },
+    "meta_ai": {
+      "priority_sections": [
+        "https://ai.meta.com/llama/get-started/",
+        "https://ai.meta.com/resources/models-and-libraries/",
+        "https://github.com/facebookresearch/llama/blob/main/README.md",
+        "https://ai.meta.com/blog/"
+      ],
+      "crawl_patterns": [
+        "/llama/*",
+        "/resources/*",
+        "/blog/*"
+      ]
+    }
+  },
+  "content_filters": {
+    "min_content_length": 500,
+    "require_code_examples": false,
+    "exclude_patterns": [
+      "cookie-policy",
+      "privacy-policy",
+      "terms-of-service",
+      "navigation",
+      "footer",
+      "sidebar",
+      "404",
+      "error"
+    ],
+    "include_keywords": [
+      "how to",
+      "tutorial",
+      "guide",
+      "example",
+      "implementation",
+      "step by step",
+      "getting started",
+      "best practices",
+      "prompt engineering",
+      "fine tuning",
+      "embeddings",
+      "function calling",
+      "code",
+      "python",
+      "javascript"
+    ]
+  },
+  "extraction_rules": {
+    "extract_code_blocks": true,
+    "extract_headings": true,
+    "extract_links": true,
+    "preserve_formatting": true,
+    "include_metadata": true
+  },
+  "output_structure": {
+    "categorize_by_type": true,
+    "separate_code_examples": true,
+    "create_topic_index": true,
+    "generate_summaries": true
+  }
+}

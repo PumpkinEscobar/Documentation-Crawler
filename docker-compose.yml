@@ -1,25 +1,14 @@
 version: '3.8'
 
 services:
-  doc_crawler:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  crawler:
+    build: .
     volumes:
-      - ./data:/app/data
-      - ./logs:/app/logs
+      - .:/app
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - HUGGINGFACE_ACCESS_TOKEN=${HUGGINGFACE_ACCESS_TOKEN}
-      - GOOGLE_AI_KEY=${GOOGLE_AI_KEY}
-      - GROK_API_KEY=${GROK_API_KEY}
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "python", "-c", "import sys; sys.exit(0 if open('/app/logs/crawler.log', 'a').close() is None else 1)"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
+    command: python wizard_cli.py crawl
 
   doc_search:
     build: .

@@ -1,0 +1,21 @@
+ai_wizard_system:
+  description: Personal AI Knowledge System for Wizard Training
+  last_updated: '2025-06-03T19:01:40.240172'
+  version: 1.0.0
+knowledge_sources:
+  anthropic:
+    claude_guides: Advanced prompt engineering techniques
+    safety_docs: Responsible AI practices
+    use_cases: Real-world applications
+  google_ai:
+    palm_docs: PaLM API implementation
+    prompt_practices: Best practices for Google AI models
+  openai:
+    api_docs: Available models, endpoints, parameters
+    best_practices: Prompt engineering, optimization techniques
+    implementation_guides: Function calling, embeddings, fine-tuning
+processed_content:
+  pure_guides: Clean prompt engineering content extracted
+  quality_validated: Content verified by validation system
+  search_enabled: Semantic search available
+  total_documents: See knowledge_base_enhanced.json

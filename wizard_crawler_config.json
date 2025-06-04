@@ -1,0 +1,51 @@
+{
+  "wizard_mode": true,
+  "sources": {
+    "openai": {
+      "api": {
+        "base_url": "https://api.openai.com/v1",
+        "key_env": "OPENAI_API_KEY",
+        "endpoints": [
+          "/models",
+          "/chat/completions",
+          "/embeddings"
+        ]
+      },
+      "docs": {
+        "base_url": "https://platform.openai.com/docs",
+        "sections": [
+          "introduction",
+          "models",
+          "guides",
+          "api-reference"
+        ]
+      }
+    },
+    "anthropic": {
+      "docs": {
+        "base_url": "https://docs.anthropic.com",
+        "sections": [
+          "claude",
+          "api",
+          "prompt-engineering"
+        ]
+      }
+    }
+  },
+  "output": {
+    "knowledge_base": "wizard_knowledge.json",
+    "doc_index": "wizard_index.yaml",
+    "embeddings": "wizard_embeddings.json",
+    "logs": "wizard_crawler.log"
+  },
+  "learning": {
+    "auto_generate_lessons": true,
+    "skill_levels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "practice_exercises": true
+  }
+}

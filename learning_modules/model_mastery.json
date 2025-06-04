@@ -1,0 +1,12 @@
+{
+  "title": "AI Model Selection & Optimization",
+  "description": "Learn to choose and optimize models",
+  "lessons": [
+    "Model capabilities comparison",
+    "Cost-performance analysis",
+    "Parameter tuning strategies",
+    "Model switching patterns"
+  ],
+  "estimated_time": 120,
+  "difficulty": "intermediate"
+}

@@ -1,0 +1,1467 @@
+src: url("https://www-cdn.anthropic.com/e8f9c8ca51b03efb6315db351446fc972ab15abe/StyreneA-Medium-Web.woff2")
+
+src: url("https://www-cdn.anthropic.com/e8f9c8ca51b03efb6315db351446fc972ab15abe/StyreneA-Medium-Web.woff2")
+
+src: url("https://www-cdn.anthropic.com/6f87b6d99aefde021ac24f21295bf9e70f71472f/StyreneBLC-Regular.woff2")
+
+src: url("https://www-cdn.anthropic.com/6f87b6d99aefde021ac24f21295bf9e70f71472f/StyreneBLC-Regular.woff2")
+
+src: url("https://www-cdn.anthropic.com/3611e9e4aaaf466dbd47e2686f561e7de694cb6c/StyreneBLC-Medium.woff2")
+
+src: url("https://www-cdn.anthropic.com/c3e09cefbfeb4e5eaca56b7bc8b9a1aa1aeda025/TiemposText-Regular.woff2")
+
+src: url("https://www-cdn.anthropic.com/b198ca4e31a323b2abb84b3eeeb1eed1f471afa0/TiemposText-Medium.woff2")
+
+src: url("https://www-cdn.anthropic.com/b198ca4e31a323b2abb84b3eeeb1eed1f471afa0/TiemposText-Medium.woff2")
+
+src: url("https://www-cdn.anthropic.com/db30aec85c7615f4a4d3e23c0c941674ea67f8f5/Copernicus-Book.woff2")
+
+font-weight: 300; /* Assuming 300 is the lightest available weight */
+
+/* Color variables copied from https://github.com/anthropics/apps/blob/main/packages/ui/themes/generated/theme-colors.css */
+
+/* Responsive layout for the home header - left align on larger screens */
+
+height: 40px; /* Adjust this value to match your desired size */
+
+mask-image: url(https://mintlify.b-cdn.net/v6.5.1/solid/magnifying-glass.svg);
+
+mask-image: url(https://mintlify.b-cdn.net/v6.5.1/solid/caret-down.svg);
+
+mask-image: url(https://mintlify.b-cdn.net/v6.5.1/solid/check.svg);
+
+/* Responsive: change to 2 columns on tablet, single column on mobile */
+
+/* These styles mirror our design system (converted to plain CSS with Claude's help) from https://ui.product.ant.dev/button */
+
+box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow);
+
+transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+Anthropic home pageEnglishSearch...Ctrl KResearchLoginSign upSign upSearch...NavigationPrompt engineeringPrompt engineering overviewWelcomeDeveloper GuideAPI GuideClaude CodeResourcesRelease NotesDocumentationDeveloper DiscordSupportFirst stepsIntro to ClaudeGet startedModels & pricingModels overviewChoosing a modelMigrating to Claude 4Model deprecationsPricingLearn about ClaudeBuilding with ClaudeUse casesContext windowsGlossaryPrompt engineeringOverviewClaude 4 best practicesPrompt generatorUse prompt templatesPrompt improverBe clear and directUse examples (multishot prompting)Let Claude think (CoT)Use XML tagsGive Claude a role (system prompts)Prefill Claude's responseChain complex promptsLong context tipsExtended thinking tipsExplore featuresFeatures overviewPrompt cachingExtended thinkingStreaming MessagesBatch processingCitationsMultilingual supportToken countingEmbeddingsVisionPDF supportFiles API (beta)Google Sheets add-onToolsOverviewHow to implement tool useToken-efficient tool use (beta)Client toolsServer toolsModel Context Protocol (MCP)MCP overviewMCP connector (beta)Remote MCP serversTest & evaluateDefine success criteriaDevelop test casesStrengthen guardrailsUsing the Evaluation ToolLegal centerAnthropic Privacy PolicySecurity and compliancePrompt engineeringPrompt engineering overviewCopy pageWhile these tips apply broadly to all Claude models, you can find prompting tips specific to extended thinking models here.
+
+A clear definition of the success criteria for your use case
+
+Some ways to empirically test against those criteria
+
+If not, we highly suggest you spend time establishing that first. Check out Define your success criteria and Create strong empirical evaluations for tips and guidance.
+
+Prompt generatorDon’t have a first draft prompt? Try the prompt generator in the Anthropic Console!
+
+This guide focuses on success criteria that are controllable through prompt engineering.
+
+Not every success criteria or failing eval is best solved by prompt engineering. For example, latency and cost can be sometimes more easily improved by selecting a different model.
+
+Prompting vs. finetuningPrompt engineering is far faster than other methods of model behavior control, such as finetuning, and can often yield leaps in performance in far less time. Here are some reasons to consider prompt engineering over finetuning:
+
+Resource efficiency: Fine-tuning requires high-end GPUs and large memory, while prompt engineering only needs text input, making it much more resource-friendly.
+
+Cost-effectiveness: For cloud-based AI services, fine-tuning incurs significant costs. Prompt engineering uses the base model, which is typically cheaper.
+
+Maintaining model updates: When providers update models, fine-tuned versions might need retraining. Prompts usually work across versions without changes.
+
+Time-saving: Fine-tuning can take hours or even days. In contrast, prompt engineering provides nearly instantaneous results, allowing for quick problem-solving.
+
+Minimal data needs: Fine-tuning needs substantial task-specific, labeled data, which can be scarce or expensive. Prompt engineering works with few-shot or even zero-shot learning.
+
+Flexibility & rapid iteration: Quickly try various approaches, tweak prompts, and see immediate results. This rapid experimentation is difficult with fine-tuning.
+
+Domain adaptation: Easily adapt models to new domains by providing domain-specific context in prompts, without retraining.
+
+Comprehension improvements: Prompt engineering is far more effective than finetuning at helping models better understand and utilize external content such as retrieved documents
+
+Preserves general knowledge: Fine-tuning risks catastrophic forgetting, where the model loses general knowledge. Prompt engineering maintains the model’s broad capabilities.
+
+Transparency: Prompts are human-readable, showing exactly what information the model receives. This transparency aids in understanding and debugging.
+
+The prompt engineering pages in this section have been organized from most broadly effective techniques to more specialized techniques. When troubleshooting performance, we suggest you try these techniques in order, although the actual impact of each technique will depend on your use case.
+
+Let Claude think (chain of thought)
+
+Give Claude a role (system prompts)
+
+If you’re an interactive learner, you can dive into our interactive tutorials instead!
+
+src: url('/fonts/Styrene_B_Family/StyreneB-Medium-Trial.otf') format('opentype');
+
+src: url('/fonts/Styrene_B_Family/StyreneB-Regular-Trial.otf') format('opentype');
+
+src: url('/fonts/Tiempos_Text/test-tiempos-text-regular.woff2') format('woff2');
+
+z-index: 1000 !important; /* Ensure widget root is above normal content but below critical overlays */
+
+/* Fix z-index to position Ask AI button in front of other elements */
+
+script.integrity = "sha256-LV6bqYA5Zt9nUiD3TiynmzBTYJbesZZk9dsMx1Fi0wU=";
+
+// API key from: https://portal.inkeep.com/anthropic/projects/clw8tmfhy000ntf8xbbpq60zz/integrations/cm7zlemlb005ws601sc7kudd5
+
+apiKey: '8f9c3d77d99a05677fd5bdf7a1f4fc1a6e65ce12aabe65cf',
+
+isDarkMode: (attributes) => !!attributes.class?.includes("dark"),
+
+getBreadcrumbs: (crumbs) => ['Support', ...crumbs.slice(1)],
+
+getBreadcrumbs: (crumbs) => ['Docs', ...crumbs.slice(1)],
+
+getBreadcrumbs: (crumbs) => ['Home', ...crumbs.slice(1)],
+
+getBreadcrumbs: (crumbs) => ['GitHub', ...crumbs.slice(1)],
+
+const matchingPattern = Object.keys(tabConfig).find((pattern) => source.url.includes(pattern))
+
+const config = matchingPattern ? tabConfig[matchingPattern] : null
+
+const breadcrumbs = config.getBreadcrumbs(source.breadcrumbs)
+
+const tabExists = existingTabs.some((existingTab) =>
+
+: Array.isArray(existingTab) && existingTab[0] === config.tab,
+
+dark: 'https://storage.googleapis.com/organization-image-assets/anthropic-botAvatarDarkSrcUrl-1715877068491.svg',
+
+'For few shot prompting, how do I pick examples?',
+
+"How can I prompt Claude to reply a user's language?",
+
+askAICardLabel: 'Ask Claude about',
+
+* Fuse.js v7.0.0 - Lightweight fuzzy-search (http://fusejs.io)
+
+description: "Generate an interactive speed typing game in a single HTML file, featuring side-scrolling gameplay and Tailwind CSS styling",
+
+description: "Extract insights, identify risks, and distill key information from long corporate reports into a single memo",
+
+description: "Create one-page websites based on user specifications",
+
+description: "Create Excel formulas based on user-described calculations or data manipulations",
+
+description: "Generate Google Apps scripts to complete tasks based on user requirements",
+
+description: "Help the user navigate hypothetical time travel scenarios and their implications",
+
+description: "Collaboratively create engaging stories with the user, offering plot twists and character development",
+
+description: "Get answers to questions about a document's content with relevant citations supporting the response",
+
+description: "Transform everyday language into SQL queries",
+
+description: "Offer interpretations and insights into the symbolism of the user's dreams",
+
+description: "Generate clever puns and wordplay based on any given topic",
+
+description: "Suggest recipe ideas based on the user's available ingredients and dietary preferences",
+
+description: "Blend two words together to create a new, meaningful portmanteau",
+
+description: "Chat with a knowledgeable AI that has a sarcastic side",
+
+href: "/en/prompt-library/hal-the-humorous-helper",
+
+description: "Write LaTeX documents, generating code for mathematical equations, tables, and more",
+
+description: "Transform text descriptions of moods into corresponding HEX codes",
+
+description: "Generate appropriate Git commands based on user-described version control actions",
+
+description: "Generate similes from basic descriptions",
+
+description: "Help the user think through complex ethical dilemmas and provide different perspectives",
+
+href: "/en/prompt-library/ethical-dilemma-navigator",
+
+description: "Distill meetings into concise summaries including discussion topics, key takeaways, and action items",
+
+description: "Explain the meaning and origin of common idioms and proverbs",
+
+description: "Suggest improvements to optimize Python code performance",
+
+description: "Create Python functions based on detailed specifications",
+
+description: "Invent new words and provide their definitions based on user-provided concepts or ideas",
+
+description: "Convert data from various formats (JSON, XML, etc.) into properly formatted CSV files",
+
+description: "Convert plain text into fun and expressive emoji messages",
+
+description: "Refine and improve written content with advanced copyediting techniques and suggestions",
+
+description: "Weigh the pros and cons of a user-provided topic",
+
+description: "Generate trivia questions on a wide range of topics and provide hints when needed",
+
+description: "Guide the user through mindfulness exercises and techniques for stress reduction",
+
+description: "Make complex text easy for young learners to understand",
+
+href: "/en/prompt-library/second-grade-simplifier",
+
+description: "Brainstorm creative ideas for virtual reality fitness games",
+
+description: "Automatically detect and remove personally identifiable information (PII) from text documents",
+
+description: "Compose comprehensive company memos based on key points",
+
+description: "Engage in role-play conversations with an AI career coach",
+
+description: "Compare and evaluate the quality of written texts based on user-defined criteria and standards",
+
+href: "/en/prompt-library/interview-question-crafter",
+
+description: "Transform grammatically incorrect sentences into proper English",
+
+description: "Generate riddles and guide the user to the solutions",
+
+description: "Simplify and explain complex code in plain language",
+
+description: "Analyze human culture and customs from the perspective of an alien anthropologist",
+
+description: "Turn unstructured text into bespoke JSON tables",
+
+description: "Craft a design brief for a holistic brand identity",
+
+description: "Calculate the time complexity of functions and algorithms",
+
+description: "Categorize feedback into pre-specified tags and categorizations",
+
+description: "Transform natural language into step-by-step directions",
+
+description: "Provide personalized motivational messages and affirmations based on user input",
+
+description: "Extract email addresses from a document into a JSON-formatted list",
+
+description: "Evaluate user inputs for potential harmful or illegal content",
+
+description: "Craft in depth lesson plans on any subject",
+
+description: "Engage in Socratic style conversation over a user-given topic",
+
+description: "Generate alliterative phrases and sentences for any given subject",
+
+description: "Suggest avant-garde fashion trends and styles for the user's specific preferences",
+
+href: "/en/prompt-library/futuristic-fashion-advisor",
+
+description: "Translate text from any language into any language",
+
+description: "Create catchy product names from descriptions and keywords",
+
+description: "Engage in deep philosophical discussions and thought experiments",
+
+description: "Generate CSV spreadsheets with various types of data",
+
+description: "Discuss with the user various science fiction scenarios and associated challenges and considerations",
+
+href: "/en/prompt-library/sci-fi-scenario-simulator",
+
+description: "Rewrite text following user-given instructions, such as with a different tone, audience, or style",
+
+description: "Create compelling product announcement tweets in the world's 10 most spoken languages",
+
+description: "Detect the tone and sentiment behind tweets",
+
+description: "Find and extract airport codes from text",
+
+description: "サイドスクロールのゲームプレイとTailwind CSSのスタイリングを備えた、インタラクティブなスピードタイピングゲームを1つのHTMLファイルで生成します。",
+
+description: "長い企業レポートから洞察を抽出し、リスクを特定し、重要な情報を1つのメモにまとめる",
+
+description: "ユーザーが説明した計算やデータ操作に基づいてExcelの数式を作成する",
+
+description: "ユーザーの要件に基づいてタスクを完了するためのGoogle Appsスクリプトを生成する",
+
+description: "仮想的なタイムトラベルのシナリオとその影響についてユーザーの理解を助ける",
+
+description: "ユーザーと協力して、ストーリーの展開やキャラクターの成長を盛り込んだ、魅力的な物語を作成します。",
+
+description: "ドキュメントの内容に関する質問に、関連する引用を用いて回答を得ることができます。",
+
+description: "ユーザーの用意できる食材と食事の好みに基づいて、レシピのアイデアを提案する",
+
+href: "/ja/prompt-library/hal-the-humorous-helper",
+
+description: "ユーザーが説明したバージョン管理のアクションに基づいて、適切な Git コマンドを生成する",
+
+description: "複雑な倫理的ジレンマについて考えるのをユーザーに手伝い、異なる視点を提供する",
+
+href: "/ja/prompt-library/ethical-dilemma-navigator",
+
+description: "会議の内容を、議論のトピック、重要な学びや気づき、アクションアイテムを含む簡潔なサマリーにまとめます。",
+
+description: "ユーザーが提供したコンセプトやアイデアに基づいて、新しい言葉を作り出し、その定義を提供します。",
+
+description: "様々なフォーマット（JSON、XMLなど）のデータを適切にフォーマットされたCSVファイルに変換する",
+
+description: "高度なコピーエディティングの技術と提案を使って、書かれたコンテンツを洗練し改善する",
+
+description: "幅広いトピックに関するトリビアクイズを作成し、必要に応じてヒントを提供します",
+
+description: "マインドフルネス演習とストレス軽減のためのテクニックをユーザーに案内する",
+
+href: "/ja/prompt-library/second-grade-simplifier",
+
+description: "バーチャルリアリティフィットネスゲームのクリエイティブなアイデアをブレインストーミングする",
+
+description: "テキストドキュメントから個人を特定できる情報（PII）を自動的に検出して削除する",
+
+description: "ユーザー定義の基準と標準に基づいて、書かれたテキストの品質を比較し評価する",
+
+href: "/ja/prompt-library/interview-question-crafter",
+
+description: "ユーザーの入力に基づいて、パーソナライズされたモチベーションメッセージと肯定的な言葉を提供します",
+
+description: "ユーザーの特定の好みに合わせた前衛的なファッショントレンドとスタイルを提案する",
+
+href: "/ja/prompt-library/futuristic-fashion-advisor",
+
+description: "ユーザーとさまざまなSFのシナリオ、それに関連する課題や考慮事項について議論する",
+
+href: "/ja/prompt-library/sci-fi-scenario-simulator",
+
+description: "ユーザーが指定した指示に従ってテキストを書き換えます。例えば、異なるトーン、対象読者、スタイルなどに合わせて書き換えることができます。",
+
+description: "Générez un jeu de dactylographie interactif dans un seul fichier HTML, avec un défilement latéral et un style Tailwind CSS",
+
+description: "Extraire des informations clés, identifier les risques et résumer les informations essentielles des longs rapports d'entreprise en une seule note de synthèse",
+
+description: "Créez des sites Web d'une page basés sur les spécifications de l'utilisateur",
+
+description: "Créez des formules Excel basées sur des calculs ou des manipulations de données décrits par l'utilisateur",
+
+name: "Développeur de scripts pour les applications Google",
+
+description: "Générer des scripts Google Apps pour accomplir des tâches en fonction des exigences de l'utilisateur",
+
+description: "Détecter et corriger les bogues dans le code Python",
+
+description: "Aidez l'utilisateur à naviguer dans des scénarios hypothétiques de voyage dans le temps et leurs implications",
+
+description: "Créez de manière collaborative des histoires captivantes avec l'utilisateur, en proposant des rebondissements et un développement des personnages",
+
+description: "Obtenez des réponses aux questions sur le contenu d'un document avec des citations pertinentes à l'appui de la réponse",
+
+description: "Transformez le langage de tous les jours en requêtes SQL",
+
+description: "Offrez des interprétations et des idées sur le symbolisme des rêves de l'utilisateur",
+
+description: "Générer des jeux de mots et des calembours astucieux sur n'importe quel sujet donné",
+
+description: "Suggérer des idées de recettes en fonction des ingrédients disponibles de l'utilisateur et de ses préférences alimentaires",
+
+description: "Mélangez deux mots pour créer un nouveau mot-valise significatif",
+
+description: "Discutez avec une IA compétente qui a un côté sarcastique",
+
+href: "/fr/prompt-library/hal-the-humorous-helper",
+
+description: "Rédigez des documents LaTeX, en générant du code pour les équations mathématiques, les tableaux et plus encore",
+
+description: "Transformez les descriptions textuelles d'humeurs en codes HEX correspondants",
+
+description: "Générer les commandes Git appropriées en fonction des actions de contrôle de version décrites par l'utilisateur",
+
+description: "Générer des comparaisons à partir de descriptions de base",
+
+description: "Aidez l'utilisateur à réfléchir aux dilemmes éthiques complexes et fournissez différentes perspectives",
+
+href: "/fr/prompt-library/ethical-dilemma-navigator",
+
+description: "Résumez les réunions en des synthèses concises comprenant les sujets de discussion, les points clés à retenir et les éléments d'action",
+
+description: "Expliquez la signification et l'origine des expressions idiomatiques et des proverbes courants",
+
+description: "Suggérer des améliorations pour optimiser les performances du code Python",
+
+description: "Créer des fonctions Python basées sur des spécifications détaillées",
+
+description: "Inventez de nouveaux mots et fournissez leurs définitions basées sur des concepts ou des idées fournis par l'utilisateur",
+
+description: "Convertir des données de divers formats (JSON, XML, etc.) en fichiers CSV correctement formatés",
+
+description: "Convertissez du texte brut en messages emoji amusants et expressifs",
+
+description: "Affinez et améliorez le contenu écrit avec des techniques et des suggestions de révision avancées",
+
+description: "Peser le pour et le contre d'un sujet fourni par l'utilisateur",
+
+description: "Générez des questions de trivia sur un large éventail de sujets et fournissez des indices au besoin",
+
+description: "Guidez l'utilisateur à travers des exercices de pleine conscience et des techniques de réduction du stress",
+
+description: "Rendre le texte complexe facile à comprendre pour les jeunes apprenants",
+
+href: "/fr/prompt-library/second-grade-simplifier",
+
+name: "Innovateur de fitness en réalité virtuelle",
+
+description: "Trouver des idées créatives pour des jeux de fitness en réalité virtuelle",
+
+description: "Détectez et supprimez automatiquement les informations personnellement identifiables (PII) des documents texte",
+
+description: "Rédiger des notes de service complètes pour l'entreprise en se basant sur les points clés",
+
+description: "Engagez des conversations de jeu de rôle avec un coach de carrière IA",
+
+description: "Comparez et évaluez la qualité des textes écrits en fonction des critères et des normes définis par l'utilisateur",
+
+description: "Générer des questions pour des entretiens",
+
+href: "/fr/prompt-library/interview-question-crafter",
+
+description: "Transformer les phrases grammaticalement incorrectes en anglais correct",
+
+description: "Générez des devinettes et guidez l'utilisateur vers les solutions",
+
+description: "Simplifiez et expliquez du code complexe en langage clair",
+
+description: "Analysez la culture et les coutumes humaines du point de vue d'un anthropologue extraterrestre",
+
+description: "Transformez du texte non structuré en tableaux JSON sur mesure",
+
+description: "Créez un brief de conception pour une identité de marque holistique",
+
+description: "Calculer la complexité temporelle des fonctions et des algorithmes",
+
+description: "Catégorisez les commentaires en utilisant des étiquettes et des catégorisations prédéfinies",
+
+description: "Transformer le langage naturel en instructions étape par étape",
+
+description: "Fournir des messages de motivation et des affirmations personnalisés en fonction des informations saisies par l'utilisateur",
+
+description: "Extraire les adresses e-mail d'un document dans une liste au format JSON",
+
+description: "Évaluez les entrées des utilisateurs pour détecter tout contenu potentiellement nuisible ou illégal",
+
+description: "Créez des plans de cours approfondis sur n'importe quel sujet",
+
+description: "Engagez une conversation de style socratique sur un sujet donné par l'utilisateur",
+
+description: "Générer des phrases et des expressions allitératives pour n'importe quel sujet donné",
+
+description: "Suggérer des tendances et des styles de mode avant-gardistes en fonction des préférences spécifiques de l'utilisateur",
+
+href: "/fr/prompt-library/futuristic-fashion-advisor",
+
+description: "Traduire du texte de n'importe quelle langue vers n'importe quelle langue",
+
+description: "Créez des noms de produits accrocheurs à partir de descriptions et de mots-clés",
+
+description: "Engagez-vous dans des discussions philosophiques profondes et des expériences de pensée",
+
+description: "Générer des feuilles de calcul CSV avec différents types de données",
+
+description: "Discutez avec l'utilisateur de divers scénarios de science-fiction et des défis et considérations associés",
+
+href: "/fr/prompt-library/sci-fi-scenario-simulator",
+
+description: "Réécrivez le texte en suivant les instructions données par l'utilisateur, comme avec un ton, un public ou un style différent",
+
+description: "Créez des tweets d'annonce de produit convaincants dans les 10 langues les plus parlées au monde",
+
+description: "Détecter le ton et le sentiment derrière les tweets",
+
+description: "Trouver et extraire les codes d'aéroport à partir d'un texte",
+
+description: "Erstelle ein interaktives Speed-Typing-Spiel in einer einzigen HTML-Datei mit Side-Scrolling-Gameplay und Tailwind CSS-Styling",
+
+description: "Extrahieren Sie Erkenntnisse, identifizieren Sie Risiken und destillieren Sie die wichtigsten Informationen aus langen Unternehmensberichten in einem einzigen Memo",
+
+description: "Erstellen Sie einseitige Websites basierend auf Benutzervorgaben",
+
+description: "Erstellen Sie Excel-Formeln basierend auf vom Benutzer beschriebenen Berechnungen oder Datenmanipulationen",
+
+description: "Generieren Sie Google Apps-Skripte, um Aufgaben basierend auf Benutzeranforderungen abzuschließen",
+
+description: "Erkennen und Beheben von Fehlern in Python-Code",
+
+description: "Hilf dem Benutzer, hypothetische Zeitreiseszenarien und deren Auswirkungen zu navigieren",
+
+description: "Erstelle gemeinsam mit dem Nutzer fesselnde Geschichten und biete Wendungen in der Handlung sowie Charakterentwicklung an",
+
+description: "Erhalten Sie Antworten auf Fragen zum Inhalt eines Dokuments mit relevanten Zitaten, die die Antwort unterstützen",
+
+description: "Umwandlung von Alltagssprache in SQL-Abfragen",
+
+description: "Bieten Sie Interpretationen und Erkenntnisse zur Symbolik der Träume des Benutzers an",
+
+description: "Generiere clevere Wortspiele und Wortwitze zu jedem beliebigen Thema",
+
+description: "Schlage Rezeptideen basierend auf den verfügbaren Zutaten und Ernährungsvorlieben des Benutzers vor",
+
+description: "Verbinde zwei Wörter zu einem neuen, sinnvollen Kofferwort",
+
+description: "Chatte mit einer sachkundigen KI, die eine sarkastische Seite hat",
+
+href: "/de/prompt-library/hal-the-humorous-helper",
+
+description: "Schreiben Sie LaTeX-Dokumente und generieren Sie Code für mathematische Gleichungen, Tabellen und mehr",
+
+description: "Transformiere Textbeschreibungen von Stimmungen in entsprechende HEX-Codes",
+
+description: "Generiere passende Git-Befehle basierend auf vom Benutzer beschriebenen Versionskontrollaktionen",
+
+description: "Generiere Vergleiche aus einfachen Beschreibungen",
+
+description: "Helfen Sie dem Benutzer, komplexe ethische Dilemmata zu durchdenken und verschiedene Perspektiven aufzuzeigen",
+
+href: "/de/prompt-library/ethical-dilemma-navigator",
+
+description: "Fasse Meetings in prägnanten Zusammenfassungen zusammen, einschließlich Diskussionsthemen, wichtiger Erkenntnisse und Maßnahmen",
+
+description: "Erkläre die Bedeutung und den Ursprung gängiger Redewendungen und Sprichwörter",
+
+description: "Verbesserungsvorschläge zur Optimierung der Performance von Python-Code",
+
+description: "Erstellen Sie Python-Funktionen basierend auf detaillierten Spezifikationen",
+
+description: "Erfinde neue Wörter und gib deren Definitionen basierend auf von Nutzern bereitgestellten Konzepten oder Ideen an",
+
+description: "Konvertieren Sie Daten aus verschiedenen Formaten (JSON, XML, etc.) in korrekt formatierte CSV-Dateien",
+
+description: "Wandeln Sie einfachen Text in lustige und ausdrucksstarke Emoji-Nachrichten um",
+
+description: "Verfeinern und verbessern Sie geschriebene Inhalte mit fortgeschrittenen Lektoratstechniken und Vorschlägen",
+
+description: "Wägen Sie die Vor- und Nachteile eines vom Benutzer vorgegebenen Themas ab",
+
+description: "Generiere Quizfragen zu einer Vielzahl von Themen und gib bei Bedarf Hinweise",
+
+description: "Führen Sie den Benutzer durch Achtsamkeitsübungen und Techniken zur Stressreduzierung",
+
+description: "Machen Sie komplexe Texte für junge Lernende leicht verständlich",
+
+href: "/de/prompt-library/second-grade-simplifier",
+
+description: "Brainstormen Sie kreative Ideen für Virtual-Reality-Fitnessspiele",
+
+description: "Automatische Erkennung und Entfernung von personenbezogenen Daten (PII) aus Textdokumenten",
+
+description: "Verfassen Sie umfassende Firmenmemos basierend auf den wichtigsten Punkten",
+
+description: "Führen Sie Rollenspiel-Gespräche mit einem KI-Karrierecoach",
+
+description: "Vergleichen und bewerten Sie die Qualität von geschriebenen Texten anhand von benutzerdefinierten Kriterien und Standards",
+
+description: "Erstelle herausfordernde Zungenbrecher",
+
+href: "/de/prompt-library/interview-question-crafter",
+
+description: "Grammatikalisch falsche Sätze in korrektes Englisch umwandeln",
+
+description: "Generiere Rätsel und führe den Benutzer zu den Lösungen",
+
+description: "Vereinfache und erkläre komplexen Code in einfacher Sprache",
+
+description: "Analysiere menschliche Kultur und Bräuche aus der Perspektive eines außerirdischen Anthropologen",
+
+description: "Unstrukturierten Text in maßgeschneiderte JSON-Tabellen umwandeln",
+
+description: "Erstellen Sie ein Design-Briefing für eine ganzheitliche Markenidentität",
+
+description: "Berechnen Sie die Zeitkomplexität von Funktionen und Algorithmen",
+
+description: "Kategorisieren Sie Feedback in vorgegebene Tags und Kategorien",
+
+description: "Natürliche Sprache in schrittweise Anweisungen umwandeln",
+
+description: "Biete personalisierte Motivationsnachrichten und Affirmationen basierend auf der Benutzereingabe an",
+
+description: "Extrahieren Sie E-Mail-Adressen aus einem Dokument in eine JSON-formatierte Liste",
+
+description: "Bewerten Sie Benutzereingaben auf potenziell schädliche oder illegale Inhalte",
+
+description: "Erstellen Sie ausführliche Unterrichtspläne zu jedem Thema",
+
+description: "Führen Sie ein sokratisches Gespräch über ein vom Benutzer vorgegebenes Thema",
+
+description: "Generiere alliterative Ausdrücke und Sätze für jedes gegebene Thema",
+
+description: "Schlage avantgardistische Modetrends und Stile vor, die den spezifischen Vorlieben des Benutzers entsprechen",
+
+href: "/de/prompt-library/futuristic-fashion-advisor",
+
+description: "Übersetzen Sie Text aus jeder Sprache in jede Sprache",
+
+description: "Erstellen Sie einprägsame Produktnamen aus Beschreibungen und Schlüsselwörtern",
+
+description: "Beteiligen Sie sich an tiefgründigen philosophischen Diskussionen und Gedankenexperimenten",
+
+description: "Generiere CSV-Tabellen mit verschiedenen Datentypen",
+
+description: "Diskutieren Sie mit dem Benutzer verschiedene Science-Fiction-Szenarien sowie die damit verbundenen Herausforderungen und Überlegungen",
+
+href: "/de/prompt-library/sci-fi-scenario-simulator",
+
+description: "Schreiben Sie Text entsprechend der vom Benutzer vorgegebenen Anweisungen um, z. B. mit einem anderen Ton, für eine andere Zielgruppe oder in einem anderen Stil",
+
+description: "Erstellen Sie überzeugende Produkt-Ankündigungs-Tweets in den 10 meistgesprochenen Sprachen der Welt",
+
+description: "Erkennen Sie den Ton und die Stimmung hinter Tweets",
+
+description: "Flughafencodes aus Text finden und extrahieren",
+
+description: "Genera un gioco interattivo di digitazione veloce in un singolo file HTML, con gameplay a scorrimento laterale e stile Tailwind CSS",
+
+description: "Estrai informazioni, identifica i rischi e sintetizza le informazioni chiave da lunghi report aziendali in un unico memo",
+
+description: "Crea siti web di una pagina basati sulle specifiche dell'utente",
+
+description: "Crea formule Excel basate su calcoli o manipolazioni di dati descritti dall'utente",
+
+name: "Sviluppatore di script per le app di Google",
+
+description: "Genera script di Google Apps per completare attività in base ai requisiti dell'utente",
+
+description: "Rileva e correggi bug nel codice Python",
+
+description: "Aiuta l'utente a navigare ipotetici scenari di viaggio nel tempo e le loro implicazioni",
+
+description: "Crea storie coinvolgenti in collaborazione con l'utente, offrendo colpi di scena e sviluppo dei personaggi",
+
+description: "Ottieni risposte alle domande sul contenuto di un documento con citazioni pertinenti a supporto della risposta",
+
+description: "Trasforma il linguaggio di tutti i giorni in query SQL",
+
+description: "Offri interpretazioni e intuizioni sul simbolismo dei sogni dell'utente",
+
+description: "Genera giochi di parole e battute argute basate su qualsiasi argomento dato",
+
+description: "Suggerisci idee per ricette in base agli ingredienti disponibili dell'utente e alle preferenze alimentari",
+
+description: "Unisci due parole per creare un nuovo e significativo portmanteau",
+
+description: "Chatta con un'AI esperta che ha un lato sarcastico",
+
+href: "/it/prompt-library/hal-the-humorous-helper",
+
+description: "Scrivi documenti LaTeX, generando codice per equazioni matematiche, tabelle e altro",
+
+description: "Trasforma le descrizioni testuali degli stati d'animo nei corrispondenti codici HEX",
+
+description: "Genera comandi Git appropriati in base alle azioni di controllo versione descritte dall'utente",
+
+description: "Genera similitudini da descrizioni di base",
+
+description: "Aiuta l'utente a riflettere su complessi dilemmi etici e fornisci diverse prospettive",
+
+href: "/it/prompt-library/ethical-dilemma-navigator",
+
+description: "Sintetizza le riunioni in riassunti concisi che includono gli argomenti di discussione, i punti chiave e le azioni da intraprendere",
+
+description: "Spiega il significato e l'origine di modi di dire e proverbi comuni",
+
+description: "Suggerisci miglioramenti per ottimizzare le prestazioni del codice Python",
+
+description: "Crea funzioni Python basate su specifiche dettagliate",
+
+description: "Inventa nuove parole e fornisci le loro definizioni basate su concetti o idee fornite dall'utente",
+
+description: "Converti dati da vari formati (JSON, XML, ecc.) in file CSV correttamente formattati",
+
+description: "Converti il testo semplice in messaggi emoji divertenti ed espressivi",
+
+description: "Perfeziona e migliora i contenuti scritti con tecniche avanzate di copyediting e suggerimenti",
+
+description: "Valuta i pro e i contro di un argomento fornito dall'utente",
+
+description: "Genera domande di curiosità su una vasta gamma di argomenti e fornisci suggerimenti quando necessario",
+
+description: "Guida l'utente attraverso esercizi di mindfulness e tecniche per la riduzione dello stress",
+
+description: "Rendi il testo complesso facile da capire per i giovani studenti",
+
+href: "/it/prompt-library/second-grade-simplifier",
+
+description: "Fai un brainstorming di idee creative per giochi di fitness in realtà virtuale",
+
+description: "Rileva e rimuovi automaticamente le informazioni personali identificabili (PII) dai documenti di testo",
+
+description: "Componi memo aziendali completi basati su punti chiave",
+
+description: "Intraprendi conversazioni di gioco di ruolo con un coach di carriera AI",
+
+description: "Confronta e valuta la qualità di testi scritti in base a criteri e standard definiti dall'utente",
+
+href: "/it/prompt-library/interview-question-crafter",
+
+description: "Trasforma frasi grammaticalmente scorrette in inglese corretto",
+
+description: "Genera indovinelli e guida l'utente alle soluzioni",
+
+description: "Semplifica e spiega codice complesso in un linguaggio semplice",
+
+description: "Analizza la cultura e le usanze umane dal punto di vista di un antropologo alieno",
+
+description: "Trasforma il testo non strutturato in tabelle JSON personalizzate",
+
+description: "Crea un brief di progettazione per un'identità di marca olistica",
+
+description: "Calcola la complessità temporale di funzioni e algoritmi",
+
+description: "Categorizza il feedback in tag e categorizzazioni predefinite",
+
+description: "Trasforma il linguaggio naturale in istruzioni passo dopo passo",
+
+description: "Fornisci messaggi motivazionali personalizzati e affermazioni basate sugli input dell'utente",
+
+description: "Estrai gli indirizzi email da un documento in una lista formattata JSON",
+
+description: "Valuta gli input degli utenti per potenziali contenuti dannosi o illegali",
+
+description: "Crea piani di lezione approfonditi su qualsiasi argomento",
+
+description: "Impegnarsi in una conversazione in stile socratico su un argomento fornito dall'utente",
+
+description: "Genera frasi e proposizioni allitteranti per qualsiasi soggetto dato",
+
+description: "Suggerisci tendenze e stili di moda d'avanguardia per le preferenze specifiche dell'utente",
+
+href: "/it/prompt-library/futuristic-fashion-advisor",
+
+description: "Traduci testo da qualsiasi lingua in qualsiasi lingua",
+
+name: "Professionista di denominazione dei prodotti",
+
+description: "Crea nomi di prodotti accattivanti da descrizioni e parole chiave",
+
+description: "Partecipa a discussioni filosofiche profonde ed esperimenti mentali",
+
+description: "Genera fogli di calcolo CSV con vari tipi di dati",
+
+description: "Discuti con l'utente vari scenari di fantascienza e le relative sfide e considerazioni",
+
+href: "/it/prompt-library/sci-fi-scenario-simulator",
+
+description: "Riscrivi il testo seguendo le istruzioni fornite dall'utente, ad esempio con un tono, un pubblico o uno stile diverso",
+
+description: "Crea tweet di annuncio di prodotti accattivanti nelle 10 lingue più parlate al mondo",
+
+description: "Rileva il tono e il sentimento dei tweet",
+
+description: "Trova ed estrai codici aeroportuali dal testo",
+
+description: "Genera un juego interactivo de mecanografía rápida en un solo archivo HTML, con desplazamiento lateral y estilo de Tailwind CSS",
+
+description: "Extraiga información clave, identifique riesgos y resuma la información esencial de largos informes corporativos en un solo memorando",
+
+description: "Crea sitios web de una página basados en las especificaciones del usuario",
+
+description: "Crear fórmulas de Excel basadas en cálculos o manipulaciones de datos descritos por el usuario",
+
+description: "Generar scripts de Google Apps para completar tareas basadas en los requisitos del usuario",
+
+description: "Detectar y corregir errores en código Python",
+
+description: "Ayuda al usuario a navegar por escenarios hipotéticos de viajes en el tiempo y sus implicaciones",
+
+description: "Crea historias cautivadoras en colaboración con el usuario, ofreciendo giros en la trama y desarrollo de personajes",
+
+description: "Obtenga respuestas a preguntas sobre el contenido de un documento con citas relevantes que respalden la respuesta",
+
+description: "Transforma lenguaje cotidiano en consultas SQL",
+
+description: "Ofrecer interpretaciones y perspectivas sobre el simbolismo de los sueños del usuario",
+
+description: "Genera juegos de palabras y retruécanos ingeniosos basados en cualquier tema dado",
+
+description: "Sugiere ideas de recetas basadas en los ingredientes disponibles del usuario y sus preferencias dietéticas",
+
+description: "Combina dos palabras para crear un nuevo y significativo portmanteau",
+
+description: "Chatea con una IA experta que tiene un lado sarcástico",
+
+href: "/es/prompt-library/hal-the-humorous-helper",
+
+description: "Escribe documentos LaTeX, generando código para ecuaciones matemáticas, tablas y más",
+
+description: "Transforma descripciones de texto de estados de ánimo en códigos HEX correspondientes",
+
+description: "Generar comandos de Git apropiados basados en acciones de control de versiones descritas por el usuario",
+
+description: "Generar símiles a partir de descripciones básicas",
+
+description: "Ayuda al usuario a pensar en dilemas éticos complejos y proporciona diferentes perspectivas",
+
+href: "/es/prompt-library/ethical-dilemma-navigator",
+
+description: "Destila las reuniones en resúmenes concisos que incluyan los temas de discusión, los puntos clave y los elementos de acción",
+
+description: "Explica el significado y el origen de modismos y proverbios comunes",
+
+description: "Sugiere mejoras para optimizar el rendimiento del código Python",
+
+description: "Crea funciones de Python basadas en especificaciones detalladas",
+
+description: "Inventa nuevas palabras y proporciona sus definiciones basadas en conceptos o ideas proporcionadas por el usuario",
+
+description: "Convierte datos de varios formatos (JSON, XML, etc.) a archivos CSV con el formato adecuado",
+
+description: "Convierte texto sin formato en mensajes emoji divertidos y expresivos",
+
+description: "Refina y mejora el contenido escrito con técnicas avanzadas de corrección de estilo y sugerencias",
+
+description: "Sopesa los pros y los contras de un tema proporcionado por el usuario",
+
+description: "Genera preguntas de trivia sobre una amplia variedad de temas y proporciona pistas cuando sea necesario",
+
+description: "Guía al usuario a través de ejercicios de atención plena y técnicas para reducir el estrés",
+
+description: "Haz que el texto complejo sea fácil de entender para los estudiantes jóvenes",
+
+href: "/es/prompt-library/second-grade-simplifier",
+
+description: "Haz una lluvia de ideas de ideas creativas para juegos de fitness de realidad virtual",
+
+description: "Detectar y eliminar automáticamente la información de identificación personal (PII) de documentos de texto",
+
+description: "Redactar memorandos empresariales completos basados en puntos clave",
+
+description: "Participa en conversaciones de juego de roles con un coach de carrera de IA",
+
+description: "Compara y evalúa la calidad de textos escritos basándose en criterios y estándares definidos por el usuario",
+
+href: "/es/prompt-library/interview-question-crafter",
+
+description: "Transforma oraciones gramaticalmente incorrectas a inglés correcto",
+
+description: "Genera acertijos y guía al usuario hacia las soluciones",
+
+description: "Simplifica y explica código complejo en lenguaje sencillo",
+
+description: "Analiza la cultura y las costumbres humanas desde la perspectiva de un antropólogo alienígena",
+
+description: "Convierte texto no estructurado en tablas JSON personalizadas",
+
+description: "Crea un brief de diseño para una identidad de marca integral",
+
+description: "Calcula la complejidad temporal de funciones y algoritmos",
+
+description: "Categorizar comentarios en etiquetas y categorizaciones pre-especificadas",
+
+description: "Transforma el lenguaje natural en instrucciones paso a paso",
+
+description: "Proporciona mensajes motivacionales personalizados y afirmaciones basadas en la entrada del usuario",
+
+description: "Extraer direcciones de correo electrónico de un documento en una lista con formato JSON",
+
+description: "Evaluar las entradas del usuario para detectar contenido potencialmente dañino o ilegal",
+
+description: "Crea planes de lecciones detallados sobre cualquier tema",
+
+description: "Participa en una conversación de estilo socrático sobre un tema dado por el usuario",
+
+description: "Genera frases y oraciones aliterativas para cualquier tema dado",
+
+description: "Sugiere tendencias y estilos de moda vanguardistas según las preferencias específicas del usuario",
+
+href: "/es/prompt-library/futuristic-fashion-advisor",
+
+description: "Traducir texto de cualquier idioma a cualquier idioma",
+
+name: "Profesional en el nombramiento de productos",
+
+description: "Crea nombres de productos atractivos a partir de descripciones y palabras clave",
+
+description: "Participa en discusiones filosóficas profundas y experimentos mentales",
+
+description: "Generar hojas de cálculo CSV con varios tipos de datos",
+
+name: "Simulador de escenarios de ciencia ficción",
+
+description: "Discuta con el usuario varios escenarios de ciencia ficción y los desafíos y consideraciones asociados",
+
+href: "/es/prompt-library/sci-fi-scenario-simulator",
+
+description: "Reescribe el texto siguiendo las instrucciones dadas por el usuario, como con un tono, audiencia o estilo diferente",
+
+description: "Crea tweets convincentes de anuncios de productos en los 10 idiomas más hablados del mundo",
+
+description: "Detectar el tono y el sentimiento detrás de los tweets",
+
+description: "Encuentra y extrae códigos de aeropuertos de un texto",
+
+description: "사이드 스크롤 게임플레이와 Tailwind CSS 스타일링을 특징으로 하는 대화형 속도 타이핑 게임을 단일 HTML 파일로 생성하세요.",
+
+description: "긴 기업 보고서에서 통찰력을 추출하고, 위험을 식별하며, 핵심 정보를 하나의 메모로 요약합니다.",
+
+description: "사용자가 설명한 계산 또는 데이터 조작을 기반으로 Excel 수식 만들기",
+
+description: "사용자 요구 사항에 따라 작업을 완료하기 위한 Google Apps 스크립트 생성",
+
+description: "가상의 시간 여행 시나리오와 그 의미를 탐색하는 데 도움을 줍니다.",
+
+description: "사용자와 협력하여 흥미로운 이야기를 만들고, 반전과 캐릭터 개발을 제공하세요.",
+
+description: "문서의 내용에 대한 질문에 대한 답변을 얻고, 응답을 뒷받침하는 관련 인용문을 제공합니다.",
+
+description: "사용자의 가용 재료와 식단 선호도에 따라 레시피 아이디어를 제안합니다",
+
+href: "/ko/prompt-library/hal-the-humorous-helper",
+
+description: "수학 방정식, 표 등을 위한 코드를 생성하여 LaTeX 문서를 작성하세요.",
+
+description: "사용자가 설명한 버전 관리 작업에 따라 적절한 Git 명령어 생성하기",
+
+description: "복잡한 윤리적 딜레마에 대해 사용자가 생각할 수 있도록 도와주고 다양한 관점을 제공합니다",
+
+href: "/ko/prompt-library/ethical-dilemma-navigator",
+
+description: "회의 내용을 토론 주제, 주요 결론 및 실행 항목을 포함한 간결한 요약으로 정리하세요.",
+
+description: "사용자가 제공한 개념이나 아이디어를 바탕으로 새로운 단어를 만들고 그 정의를 제공하세요",
+
+description: "다양한 형식(JSON, XML 등)의 데이터를 적절하게 포맷된 CSV 파일로 변환합니다.",
+
+description: "일반 텍스트를 재미있고 표현력 있는 이모티콘 메시지로 변환하세요",
+
+description: "고급 교정 기술과 제안을 통해 작성된 콘텐츠를 개선하고 향상시키세요",
+
+description: "다양한 주제에 대한 퀴즈 문제를 만들고 필요할 때 힌트를 제공합니다",
+
+href: "/ko/prompt-library/second-grade-simplifier",
+
+description: "텍스트 문서에서 개인 식별 정보(PII)를 자동으로 감지하고 제거합니다.",
+
+description: "사용자 정의 기준과 표준에 따라 작성된 텍스트의 품질을 비교하고 평가합니다",
+
+href: "/ko/prompt-library/interview-question-crafter",
+
+description: "사용자 입력을 기반으로 개인화된 동기 부여 메시지와 긍정적인 말을 제공합니다",
+
+description: "문서에서 이메일 주소를 추출하여 JSON 형식의 목록으로 만들기",
+
+description: "사용자의 특정 선호도에 맞는 아방가르드한 패션 트렌드와 스타일을 제안합니다",
+
+href: "/ko/prompt-library/futuristic-fashion-advisor",
+
+description: "사용자와 함께 다양한 공상 과학 시나리오와 관련된 도전과제 및 고려사항에 대해 토론하세요.",
+
+href: "/ko/prompt-library/sci-fi-scenario-simulator",
+
+description: "사용자가 제공한 지침에 따라 텍스트를 다른 어조, 청중 또는 스타일로 다시 작성합니다.",
+
+description: "生成一个交互式的打字速度游戏，包含在单个 HTML 文件中，具有横向滚动的游戏玩法和使用 Tailwind CSS 的样式设计",
+
+description: "从冗长的公司报告中提取见解、识别风险并提炼关键信息，整理成一份备忘录。",
+
+href: "/zh-CN/prompt-library/corporate-clairvoyant",
+
+href: "/zh-CN/prompt-library/excel-formula-expert",
+
+href: "/zh-CN/prompt-library/google-apps-scripter",
+
+href: "/zh-CN/prompt-library/time-travel-consultant",
+
+href: "/zh-CN/prompt-library/storytelling-sidekick",
+
+href: "/zh-CN/prompt-library/hal-the-humorous-helper",
+
+href: "/zh-CN/prompt-library/ethical-dilemma-navigator",
+
+description: "将各种格式（JSON、XML 等）的数据转换为格式正确的 CSV 文件",
+
+href: "/zh-CN/prompt-library/perspectives-ponderer",
+
+href: "/zh-CN/prompt-library/second-grade-simplifier",
+
+href: "/zh-CN/prompt-library/vr-fitness-innovator",
+
+href: "/zh-CN/prompt-library/interview-question-crafter",
+
+href: "/zh-CN/prompt-library/alien-anthropologist",
+
+href: "/zh-CN/prompt-library/efficiency-estimator",
+
+href: "/zh-CN/prompt-library/alliteration-alchemist",
+
+href: "/zh-CN/prompt-library/futuristic-fashion-advisor",
+
+href: "/zh-CN/prompt-library/polyglot-superpowers",
+
+href: "/zh-CN/prompt-library/philosophical-musings",
+
+href: "/zh-CN/prompt-library/spreadsheet-sorcerer",
+
+href: "/zh-CN/prompt-library/sci-fi-scenario-simulator",
+
+href: "/zh-CN/prompt-library/airport-code-analyst",
+
+description: "在單一 HTML 檔案中生成一個互動式速打遊戲,具有橫向捲動的遊戲方式和使用 Tailwind CSS 的樣式",
+
+href: "/zh-TW/prompt-library/corporate-clairvoyant",
+
+href: "/zh-TW/prompt-library/excel-formula-expert",
+
+href: "/zh-TW/prompt-library/google-apps-scripter",
+
+href: "/zh-TW/prompt-library/time-travel-consultant",
+
+href: "/zh-TW/prompt-library/storytelling-sidekick",
+
+href: "/zh-TW/prompt-library/hal-the-humorous-helper",
+
+href: "/zh-TW/prompt-library/ethical-dilemma-navigator",
+
+description: "將各種格式（JSON、XML 等）的數據轉換為格式正確的 CSV 文件",
+
+href: "/zh-TW/prompt-library/perspectives-ponderer",
+
+href: "/zh-TW/prompt-library/second-grade-simplifier",
+
+href: "/zh-TW/prompt-library/vr-fitness-innovator",
+
+href: "/zh-TW/prompt-library/interview-question-crafter",
+
+href: "/zh-TW/prompt-library/alien-anthropologist",
+
+href: "/zh-TW/prompt-library/efficiency-estimator",
+
+href: "/zh-TW/prompt-library/alliteration-alchemist",
+
+href: "/zh-TW/prompt-library/futuristic-fashion-advisor",
+
+href: "/zh-TW/prompt-library/polyglot-superpowers",
+
+href: "/zh-TW/prompt-library/philosophical-musings",
+
+href: "/zh-TW/prompt-library/spreadsheet-sorcerer",
+
+href: "/zh-TW/prompt-library/sci-fi-scenario-simulator",
+
+href: "/zh-TW/prompt-library/airport-code-analyst",
+
+description: "Создайте интерактивную игру для скоростного набора текста в одном HTML-файле, с прокруткой игрового процесса в сторону и стилизацией с помощью Tailwind CSS",
+
+description: "Извлекайте идеи, выявляйте риски и выделяйте ключевую информацию из длинных корпоративных отчетов в единый меморандум",
+
+description: "Создание одностраничных веб-сайтов на основе требований пользователя",
+
+description: "Создание формул Excel на основе описанных пользователем вычислений или манипуляций с данными",
+
+description: "Генерация скриптов Google Apps для выполнения задач на основе требований пользователя",
+
+description: "Обнаружение и исправление ошибок в коде Python",
+
+description: "Помогите пользователю ориентироваться в гипотетических сценариях путешествий во времени и их последствиях",
+
+description: "Совместно создавайте увлекательные истории с пользователем, предлагая сюжетные повороты и развитие персонажей",
+
+description: "Получите ответы на вопросы о содержании документа с соответствующими цитатами, подтверждающими ответ",
+
+description: "Преобразование повседневного языка в SQL-запросы",
+
+description: "Предлагайте интерпретации и озарения касательно символизма снов пользователя",
+
+description: "Генерируйте умные каламбуры и игру слов на любую заданную тему",
+
+description: "Предлагайте идеи рецептов на основе доступных у пользователя ингредиентов и предпочтений в питании",
+
+description: "Объедините два слова вместе, чтобы создать новый, значимый портмоне",
+
+description: "Общайтесь со знающим ИИ, у которого есть саркастическая сторона",
+
+href: "/ru/prompt-library/hal-the-humorous-helper",
+
+description: "Создавайте документы LaTeX, генерируя код для математических уравнений, таблиц и многого другого",
+
+description: "Преобразуйте текстовые описания настроений в соответствующие HEX-коды",
+
+description: "Генерация подходящих команд Git на основе описанных пользователем действий по управлению версиями",
+
+description: "Генерация сравнений из простых описаний",
+
+description: "Помогите пользователю обдумать сложные этические дилеммы и предоставьте различные точки зрения",
+
+href: "/ru/prompt-library/ethical-dilemma-navigator",
+
+description: "Суммируйте встречи в краткие резюме, включая темы обсуждения, ключевые выводы и пункты действий",
+
+description: "Объясните значение и происхождение распространенных идиом и пословиц",
+
+description: "Предложите улучшения для оптимизации производительности кода на Python",
+
+description: "Создание функций Python на основе подробных спецификаций",
+
+description: "Придумывайте новые слова и давайте их определения на основе предоставленных пользователем концепций или идей",
+
+description: "Преобразование данных из различных форматов (JSON, XML и т.д.) в правильно отформатированные CSV файлы",
+
+description: "Преобразуйте простой текст в забавные и выразительные сообщения с эмодзи",
+
+description: "Улучшайте и совершенствуйте письменный контент с помощью продвинутых методов редактирования и предложений",
+
+description: "Взвесьте плюсы и минусы темы, предложенной пользователем",
+
+description: "Генерируйте вопросы для викторины на широкий круг тем и предоставляйте подсказки при необходимости",
+
+description: "Проведите пользователя через упражнения по осознанности и методы снижения стресса",
+
+description: "Сделайте сложный текст понятным для юных учеников",
+
+href: "/ru/prompt-library/second-grade-simplifier",
+
+name: "Инноватор в области фитнеса в виртуальной реальности",
+
+description: "Придумайте креативные идеи для фитнес-игр в виртуальной реальности",
+
+description: "Автоматическое обнаружение и удаление персональных данных (PII) из текстовых документов",
+
+description: "Составляйте всеобъемлющие служебные записки компании на основе ключевых моментов",
+
+description: "Участвуйте в ролевых беседах с ИИ-карьерным коучем",
+
+description: "Сравнивайте и оценивайте качество письменных текстов на основе определенных пользователем критериев и стандартов",
+
+href: "/ru/prompt-library/interview-question-crafter",
+
+description: "Преобразуйте грамматически неправильные предложения в правильный английский",
+
+description: "Генерируйте загадки и помогайте пользователю найти решения",
+
+description: "Упрощайте и объясняйте сложный код простым языком",
+
+description: "Проанализируйте человеческую культуру и обычаи с точки зрения инопланетного антрополога",
+
+description: "Преобразуйте неструктурированный текст в пользовательские таблицы JSON",
+
+description: "Создайте дизайн-бриф для целостной айдентики бренда",
+
+description: "Вычисление временной сложности функций и алгоритмов",
+
+description: "Классифицируйте отзывы по заранее определенным тегам и категориям",
+
+description: "Преобразование естественного языка в пошаговые инструкции",
+
+description: "Предоставляйте персонализированные мотивационные сообщения и аффирмации на основе пользовательского ввода",
+
+description: "Извлечение адресов электронной почты из документа в список в формате JSON",
+
+description: "Оценка пользовательских вводов на предмет потенциально вредного или незаконного содержания",
+
+description: "Создавайте подробные планы уроков по любому предмету",
+
+description: "Ведите беседу в стиле Сократа на тему, заданную пользователем",
+
+description: "Генерируйте аллитерационные фразы и предложения для любой заданной темы",
+
+description: "Предлагайте авангардные модные тенденции и стили в соответствии с конкретными предпочтениями пользователя",
+
+href: "/ru/prompt-library/futuristic-fashion-advisor",
+
+description: "Переводите текст с любого языка на любой язык",
+
+name: "Профессионал в области наименования продуктов",
+
+description: "Создание броских названий продуктов из описаний и ключевых слов",
+
+description: "Участвуйте в глубоких философских дискуссиях и мысленных экспериментах",
+
+description: "Генерация CSV-таблиц с различными типами данных",
+
+description: "Обсудите с пользователем различные сценарии научной фантастики, а также связанные с ними проблемы и соображения.",
+
+href: "/ru/prompt-library/sci-fi-scenario-simulator",
+
+description: "Перепишите текст, следуя инструкциям пользователя, например, с другим тоном, аудиторией или стилем",
+
+description: "Создавайте привлекательные твиты о выпуске продуктов на 10 самых распространенных языках мира",
+
+description: "Определение тона и настроения твитов",
+
+description: "Найти и извлечь коды аэропортов из текста",
+
+description: "Buat game mengetik cepat interaktif dalam satu file HTML, menampilkan gameplay side-scrolling dan styling Tailwind CSS",
+
+description: "Ekstrak wawasan, identifikasi risiko, dan ringkas informasi penting dari laporan perusahaan yang panjang menjadi satu memo",
+
+description: "Buat situs web satu halaman berdasarkan spesifikasi pengguna",
+
+description: "Membuat rumus Excel berdasarkan perhitungan atau manipulasi data yang dijelaskan pengguna",
+
+description: "Membuat skrip Google Apps untuk menyelesaikan tugas berdasarkan kebutuhan pengguna",
+
+description: "Mendeteksi dan memperbaiki bug dalam kode Python",
+
+description: "Bantu pengguna menavigasi skenario perjalanan waktu hipotetis dan implikasinya",
+
+description: "Berkolaborasi untuk menciptakan cerita yang menarik dengan pengguna, menawarkan plot twist dan pengembangan karakter",
+
+description: "Dapatkan jawaban atas pertanyaan tentang isi dokumen dengan kutipan yang relevan untuk mendukung tanggapan",
+
+description: "Ubah bahasa sehari-hari menjadi query SQL",
+
+description: "Tawarkan interpretasi dan wawasan tentang simbolisme dari mimpi pengguna",
+
+description: "Hasilkan permainan kata dan plesetan yang cerdas berdasarkan topik apa pun yang diberikan",
+
+description: "Sarankan ide resep berdasarkan bahan-bahan yang tersedia dan preferensi diet pengguna",
+
+description: "Gabungkan dua kata untuk membuat sebuah portmanteau baru yang bermakna",
+
+description: "Mengobrol dengan AI yang berpengetahuan luas dan memiliki sisi sarkastik",
+
+href: "/id/prompt-library/hal-the-humorous-helper",
+
+description: "Tulis dokumen LaTeX, menghasilkan kode untuk persamaan matematika, tabel, dan lainnya",
+
+description: "Ubah deskripsi teks suasana hati menjadi kode HEX yang sesuai",
+
+description: "Hasilkan perintah Git yang sesuai berdasarkan tindakan kontrol versi yang dijelaskan pengguna",
+
+description: "Membuat perumpamaan dari deskripsi dasar",
+
+description: "Bantu pengguna memikirkan dilema etika yang rumit dan berikan perspektif yang berbeda",
+
+href: "/id/prompt-library/ethical-dilemma-navigator",
+
+description: "Meringkas rapat menjadi rangkuman singkat yang mencakup topik diskusi, poin-poin penting, dan item tindakan",
+
+description: "Jelaskan arti dan asal-usul idiom dan peribahasa umum",
+
+description: "Sarankan perbaikan untuk mengoptimalkan performa kode Python",
+
+description: "Membuat fungsi Python berdasarkan spesifikasi terperinci",
+
+description: "Menciptakan kata-kata baru dan memberikan definisinya berdasarkan konsep atau ide yang diberikan pengguna",
+
+description: "Konversi data dari berbagai format (JSON, XML, dll.) menjadi file CSV dengan format yang benar",
+
+description: "Ubah teks biasa menjadi pesan emoji yang menyenangkan dan ekspresif",
+
+description: "Sempurnakan dan tingkatkan konten tertulis dengan teknik dan saran penyuntingan naskah tingkat lanjut",
+
+description: "Timbang pro dan kontra dari topik yang diberikan pengguna",
+
+description: "Hasilkan pertanyaan trivia tentang berbagai topik dan berikan petunjuk jika diperlukan",
+
+description: "Memandu pengguna melalui latihan perhatian dan teknik untuk mengurangi stres",
+
+description: "Membuat teks kompleks mudah dipahami untuk pelajar muda",
+
+href: "/id/prompt-library/second-grade-simplifier",
+
+description: "Brainstorm ide-ide kreatif untuk game kebugaran realitas virtual",
+
+description: "Secara otomatis mendeteksi dan menghapus informasi yang dapat mengidentifikasi pribadi (PII) dari dokumen teks",
+
+description: "Menyusun memo perusahaan yang komprehensif berdasarkan poin-poin utama",
+
+description: "Lakukan percakapan bermain peran dengan pelatih karir AI",
+
+description: "Bandingkan dan evaluasi kualitas teks tertulis berdasarkan kriteria dan standar yang ditentukan pengguna",
+
+description: "Membuat pantun lidah yang menantang",
+
+href: "/id/prompt-library/interview-question-crafter",
+
+description: "Ubah kalimat yang secara tata bahasa salah menjadi bahasa Inggris yang benar",
+
+description: "Membuat teka-teki dan memandu pengguna ke solusinya",
+
+description: "Sederhanakan dan jelaskan kode yang rumit dalam bahasa yang sederhana",
+
+description: "Analisis budaya dan kebiasaan manusia dari perspektif seorang antropolog alien",
+
+description: "Ubah teks tidak terstruktur menjadi tabel JSON yang dibuat khusus",
+
+description: "Buat sebuah brief desain untuk identitas merek yang holistik",
+
+description: "Menghitung kompleksitas waktu dari fungsi dan algoritma",
+
+description: "Mengkategorikan umpan balik ke dalam tag dan kategorisasi yang telah ditentukan sebelumnya",
+
+description: "Transformasikan bahasa alami menjadi petunjuk langkah demi langkah",
+
+description: "Berikan pesan motivasi dan afirmasi yang dipersonalisasi berdasarkan masukan pengguna",
+
+description: "Ekstrak alamat email dari dokumen ke dalam daftar berformat JSON",
+
+description: "Evaluasi input pengguna untuk potensi konten berbahaya atau ilegal",
+
+description: "Buat rencana pelajaran yang mendalam tentang subjek apa pun",
+
+description: "Terlibat dalam percakapan gaya Socratic tentang topik yang diberikan pengguna",
+
+description: "Membuat frasa dan kalimat aliterasi untuk subjek apa pun yang diberikan",
+
+description: "Sarankan tren dan gaya fashion avant-garde sesuai dengan preferensi spesifik pengguna",
+
+href: "/id/prompt-library/futuristic-fashion-advisor",
+
+description: "Menerjemahkan teks dari bahasa apa pun ke bahasa apa pun",
+
+description: "Buat nama produk yang menarik dari deskripsi dan kata kunci",
+
+description: "Terlibat dalam diskusi filosofis yang mendalam dan eksperimen pemikiran",
+
+description: "Hasilkan spreadsheet CSV dengan berbagai jenis data",
+
+description: "Diskusikan dengan pengguna berbagai skenario fiksi ilmiah dan tantangan serta pertimbangan terkait",
+
+href: "/id/prompt-library/sci-fi-scenario-simulator",
+
+description: "Tulis ulang teks mengikuti instruksi yang diberikan pengguna, seperti dengan nada, audiens, atau gaya yang berbeda",
+
+description: "Buat tweet pengumuman produk yang menarik dalam 10 bahasa yang paling banyak digunakan di dunia",
+
+description: "Deteksi nada dan sentimen di balik tweet",
+
+description: "Temukan dan ekstrak kode bandara dari teks",
+
+description: "Gere um jogo interativo de digitação rápida em um único arquivo HTML, apresentando jogabilidade de rolagem lateral e estilização com Tailwind CSS",
+
+description: "Extraia insights, identifique riscos e destile informações-chave de longos relatórios corporativos em um único memorando",
+
+description: "Crie websites de uma página com base nas especificações do usuário",
+
+description: "Crie fórmulas do Excel com base em cálculos ou manipulações de dados descritos pelo usuário",
+
+name: "Desenvolvedor de scripts para aplicativos do Google",
+
+description: "Gerar scripts do Google Apps para concluir tarefas com base nos requisitos do usuário",
+
+description: "Detectar e corrigir bugs no código Python",
+
+description: "Ajude o usuário a navegar por cenários hipotéticos de viagem no tempo e suas implicações",
+
+description: "Crie histórias envolventes em colaboração com o usuário, oferecendo reviravoltas na trama e desenvolvimento de personagens",
+
+description: "Obtenha respostas para perguntas sobre o conteúdo de um documento com citações relevantes que suportam a resposta",
+
+description: "Transforme linguagem cotidiana em consultas SQL",
+
+description: "Ofereça interpretações e insights sobre o simbolismo dos sonhos do usuário",
+
+description: "Gere trocadilhos inteligentes e jogos de palavras baseados em qualquer tópico fornecido",
+
+description: "Sugira ideias de receitas com base nos ingredientes disponíveis do usuário e nas preferências alimentares",
+
+description: "Combine duas palavras para criar um novo e significativo portmanteau",
+
+description: "Converse com uma IA bem informada que tem um lado sarcástico",
+
+href: "/pt/prompt-library/hal-the-humorous-helper",
+
+description: "Escreva documentos LaTeX, gerando código para equações matemáticas, tabelas e muito mais",
+
+description: "Transforme descrições de texto de humores em códigos HEX correspondentes",
+
+description: "Gere comandos Git apropriados com base em ações de controle de versão descritas pelo usuário",
+
+description: "Gerar símiles a partir de descrições básicas",
+
+description: "Ajude o usuário a refletir sobre dilemas éticos complexos e forneça diferentes perspectivas",
+
+href: "/pt/prompt-library/ethical-dilemma-navigator",
+
+description: "Resuma reuniões em sumários concisos, incluindo tópicos de discussão, pontos-chave e itens de ação",
+
+description: "Explique o significado e a origem de expressões idiomáticas e provérbios comuns",
+
+description: "Sugira melhorias para otimizar o desempenho do código Python",
+
+description: "Crie funções Python baseadas em especificações detalhadas",
+
+description: "Invente novas palavras e forneça suas definições com base em conceitos ou ideias fornecidos pelo usuário",
+
+description: "Converta dados de vários formatos (JSON, XML, etc.) em arquivos CSV formatados corretamente",
+
+description: "Converta texto simples em mensagens de emoji divertidas e expressivas",
+
+description: "Refine e aprimore o conteúdo escrito com técnicas avançadas de copyediting e sugestões",
+
+description: "Pese os prós e contras de um tópico fornecido pelo usuário",
+
+description: "Gere perguntas de curiosidades sobre uma ampla variedade de tópicos e forneça dicas quando necessário",
+
+description: "Guie o usuário através de exercícios de mindfulness e técnicas para redução do estresse",
+
+description: "Torne textos complexos fáceis de entender para jovens aprendizes",
+
+href: "/pt/prompt-library/second-grade-simplifier",
+
+description: "Faça um brainstorming de ideias criativas para jogos de fitness em realidade virtual",
+
+description: "Detectar e remover automaticamente informações de identificação pessoal (PII) de documentos de texto",
+
+description: "Elabore memorandos abrangentes da empresa com base em pontos-chave",
+
+description: "Participe de conversas de interpretação de papéis com um coach de carreira de IA",
+
+description: "Compare e avalie a qualidade de textos escritos com base em critérios e padrões definidos pelo usuário",
+
+href: "/pt/prompt-library/interview-question-crafter",
+
+description: "Transforme frases gramaticalmente incorretas em inglês correto",
+
+description: "Gere adivinhas e guie o usuário até as soluções",
+
+description: "Simplifique e explique código complexo em linguagem simples",
+
+description: "Analise a cultura e os costumes humanos da perspectiva de um antropólogo alienígena",
+
+description: "Transforme texto não estruturado em tabelas JSON personalizadas",
+
+description: "Crie um briefing de design para uma identidade de marca holística",
+
+description: "Calcule a complexidade de tempo de funções e algoritmos",
+
+description: "Categorize o feedback em tags e categorizações pré-especificadas",
+
+description: "Transforme linguagem natural em instruções passo a passo",
+
+description: "Forneça mensagens motivacionais personalizadas e afirmações com base na entrada do usuário",
+
+description: "Extrair endereços de e-mail de um documento para uma lista formatada em JSON",
+
+description: "Avalie as entradas do usuário quanto a possível conteúdo prejudicial ou ilegal",
+
+description: "Crie planos de aula aprofundados sobre qualquer assunto",
+
+description: "Envolva-se em uma conversa no estilo socrático sobre um tópico fornecido pelo usuário",
+
+description: "Gere frases e sentenças aliterativas para qualquer assunto fornecido",
+
+description: "Sugira tendências e estilos de moda avant-garde para as preferências específicas do usuário",
+
+href: "/pt/prompt-library/futuristic-fashion-advisor",
+
+description: "Traduza texto de qualquer idioma para qualquer idioma",
+
+description: "Crie nomes de produtos atraentes a partir de descrições e palavras-chave",
+
+description: "Participe de discussões filosóficas profundas e experimentos mentais",
+
+description: "Gerar planilhas CSV com vários tipos de dados",
+
+description: "Discuta com o usuário vários cenários de ficção científica e os desafios e considerações associados",
+
+href: "/pt/prompt-library/sci-fi-scenario-simulator",
+
+description: "Reescreva o texto seguindo as instruções fornecidas pelo usuário, como com um tom, público ou estilo diferente",
+
+description: "Crie tweets envolventes de anúncio de produto nos 10 idiomas mais falados do mundo",
+
+description: "Detecte o tom e o sentimento por trás de tweets",
+
+description: "Encontre e extraia códigos de aeroportos do texto",
+
+const promptsContainer = document.getElementById("prompts-container");
+
+const prompts = promptsByLanguage[language] || promptsByLanguage.en;
+
+? fuse.search(query).map((fuseResults) => fuseResults.item)
+
+document.getElementById("categories-dropdown").style.display = "grid";
+
+document.getElementById("categories-dropdown-clickout").style.display =
+
+document.getElementById("categories-dropdown").style.display = "none";
+
+document.getElementById("categories-dropdown-clickout").style.display =
+
+const categories = categoriesByLanguage[language] || categoriesByLanguage.en;
+
+document.getElementById("category-select").textContent = categories.find(
+
+const dropdown = document.getElementById("categories-dropdown");

@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "created": "2025-06-02T21:08:40.442723",
+    "sources": [
+      "openai",
+      "anthropic"
+    ],
+    "total_documents": 50,
+    "version": "1.0.0"
+  },
+  "concepts": {
+    "prompt_engineering": {
+      "definition": "The practice of designing effective prompts for AI models",
+      "key_techniques": [
+        "few-shot",
+        "chain-of-thought",
+        "instruction-following"
+      ],
+      "sources": [
+        "openai_docs",
+        "anthropic_docs"
+      ]
+    },
+    "fine_tuning": {
+      "definition": "Training a pre-trained model on specific data",
+      "applications": [
+        "domain-specific tasks",
+        "style adaptation",
+        "behavior modification"
+      ],
+      "sources": [
+        "openai_api",
+        "research_papers"
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "user_profile": {
+    "name": "AI Wizard in Training",
+    "start_date": "2025-06-02T21:08:40.439257",
+    "current_level": "beginner",
+    "goals": [
+      "Master prompt engineering",
+      "Build AI agents",
+      "Deploy production systems"
+    ]
+  },
+  "completed_modules": [],
+  "current_module": "prompt_fundamentals",
+  "total_study_time": 0,
+  "achievements": []
+}

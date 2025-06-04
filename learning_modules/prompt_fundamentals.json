@@ -1,0 +1,12 @@
+{
+  "title": "Prompt Engineering Fundamentals",
+  "description": "Master the art of effective prompt design",
+  "lessons": [
+    "Understanding prompt structure",
+    "Few-shot vs zero-shot prompting",
+    "Chain-of-thought techniques",
+    "System message design"
+  ],
+  "estimated_time": 180,
+  "difficulty": "beginner"
+}
