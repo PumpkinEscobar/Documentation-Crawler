@@ -24,6 +24,8 @@ wheels/
 venv/
 env/
 ENV/
+.venv/
+ai_wizard_env/
 
 # IDE
 .idea/
@@ -35,6 +37,31 @@ ENV/
 .env
 .env.local
 *.log
+
+# Common data, output, and log directories/files
+knowledge_base/
+data/
+logs/
+output/
+embeddings/
+*.json
+*.yaml
+*.txt
+*.log
+
+# Large specific files (ensure these are not essential configs)
+# If any YAML/JSON/TXT here are *source configs*, list them with !pattern
+# e.g. !my_config.yaml
+anthropic_prompt_guide.txt
+working_content.txt
+extracted_ai_content.txt
+knowledge_base_enhanced.json
+valuable_knowledge.json
+extracted_knowledge.json
+clean_treasure.json
+openai_api_docs.json
+python_docs.json
+python_docs_index.json
 
 # Project specific
 openai_docs_index.json 
