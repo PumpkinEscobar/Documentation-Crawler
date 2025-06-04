@@ -1,0 +1,264 @@
+api_reference:
+  endpoints:
+    /assistants: {}
+    /chat/completions: {}
+    /completions: {}
+    /embeddings: {}
+    /fine-tuning: {}
+    /images: {}
+    /models: {}
+core_concepts:
+  deployment_patterns:
+    general:
+      entries:
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:11.992043'
+        quality_score: 0.8
+        source: huggingface
+        title: Hugging Face Hub documentation
+        url: https://huggingface.co/docs/hub
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:22.616125'
+        quality_score: 0.7
+        source: huggingface
+        title: Transformers
+        url: https://huggingface.co/docs/transformers
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:33.060501'
+        quality_score: 0.5
+        source: huggingface
+        title: Tokenizers
+        url: https://huggingface.co/docs/tokenizers
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:48.211836'
+        quality_score: 0.6
+        source: huggingface
+        title: Datasets
+        url: https://huggingface.co/docs/datasets
+      - code_examples: 2
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:58.630649'
+        quality_score: 0.7999999999999999
+        source: huggingface
+        title: Accelerate
+        url: https://huggingface.co/docs/accelerate
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:59:11.017818'
+        quality_score: 0.6
+        source: huggingface
+        title: PEFT
+        url: https://huggingface.co/docs/peft
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:59:26.688604'
+        quality_score: 0.7
+        source: huggingface
+        title: "\U0001F917 Optimum"
+        url: https://huggingface.co/docs/optimum
+  model_architectures:
+    transformer:
+      entries:
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:11.992043'
+        quality_score: 0.8
+        source: huggingface
+        title: Hugging Face Hub documentation
+        url: https://huggingface.co/docs/hub
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:22.616125'
+        quality_score: 0.7
+        source: huggingface
+        title: Transformers
+        url: https://huggingface.co/docs/transformers
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:33.060501'
+        quality_score: 0.5
+        source: huggingface
+        title: Tokenizers
+        url: https://huggingface.co/docs/tokenizers
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:48.211836'
+        quality_score: 0.6
+        source: huggingface
+        title: Datasets
+        url: https://huggingface.co/docs/datasets
+      - code_examples: 2
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:58.630649'
+        quality_score: 0.7999999999999999
+        source: huggingface
+        title: Accelerate
+        url: https://huggingface.co/docs/accelerate
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:59:11.017818'
+        quality_score: 0.6
+        source: huggingface
+        title: PEFT
+        url: https://huggingface.co/docs/peft
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:59:26.688604'
+        quality_score: 0.7
+        source: huggingface
+        title: "\U0001F917 Optimum"
+        url: https://huggingface.co/docs/optimum
+  prompt_engineering:
+    general:
+      entries:
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:49:11.360277'
+        quality_score: 0.7
+        source: anthropic
+        title: Home - Anthropic
+        url: https://docs.anthropic.com/claude
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:49:23.815246'
+        quality_score: 0.7
+        source: anthropic
+        title: Home - Anthropic
+        url: https://docs.anthropic.com/api
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:49:36.007994'
+        quality_score: 0.7
+        source: anthropic
+        title: Home - Anthropic
+        url: https://docs.anthropic.com/prompt-engineering
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:49:46.897007'
+        quality_score: 0.7
+        source: anthropic
+        title: Home - Anthropic
+        url: https://docs.anthropic.com/enterprise
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:49:57.896611'
+        quality_score: 0.7
+        source: anthropic
+        title: Home - Anthropic
+        url: https://docs.anthropic.com/security
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:50:08.397383'
+        quality_score: 0.7
+        source: anthropic
+        title: Home - Anthropic
+        url: https://docs.anthropic.com/best-practices
+      - code_examples: 5
+        key_concepts: []
+        last_updated: '2025-06-02T23:50:23.172812'
+        quality_score: 0.8999999999999999
+        source: google-ai
+        title: "Gemini API \_|\_ Google AI for Developers"
+        url: https://ai.google.dev/docs
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:59:11.017818'
+        quality_score: 0.6
+        source: huggingface
+        title: PEFT
+        url: https://huggingface.co/docs/peft
+  safety_practices:
+    general:
+      entries:
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:57:23.242715'
+        quality_score: 0.5
+        source: grok
+        title: Welcome | xAI
+        url: https://grok.x.ai/docs/api
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:11.992043'
+        quality_score: 0.8
+        source: huggingface
+        title: Hugging Face Hub documentation
+        url: https://huggingface.co/docs/hub
+  training_approaches:
+    fine_tuning:
+      entries:
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:59:11.017818'
+        quality_score: 0.6
+        source: huggingface
+        title: PEFT
+        url: https://huggingface.co/docs/peft
+    general:
+      entries:
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:57:23.242715'
+        quality_score: 0.5
+        source: grok
+        title: Welcome | xAI
+        url: https://grok.x.ai/docs/api
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:11.992043'
+        quality_score: 0.8
+        source: huggingface
+        title: Hugging Face Hub documentation
+        url: https://huggingface.co/docs/hub
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:22.616125'
+        quality_score: 0.7
+        source: huggingface
+        title: Transformers
+        url: https://huggingface.co/docs/transformers
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:33.060501'
+        quality_score: 0.5
+        source: huggingface
+        title: Tokenizers
+        url: https://huggingface.co/docs/tokenizers
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:48.211836'
+        quality_score: 0.6
+        source: huggingface
+        title: Datasets
+        url: https://huggingface.co/docs/datasets
+      - code_examples: 2
+        key_concepts: []
+        last_updated: '2025-06-02T23:58:58.630649'
+        quality_score: 0.7999999999999999
+        source: huggingface
+        title: Accelerate
+        url: https://huggingface.co/docs/accelerate
+      - code_examples: 0
+        key_concepts: []
+        last_updated: '2025-06-02T23:59:26.688604'
+        quality_score: 0.7
+        source: huggingface
+        title: "\U0001F917 Optimum"
+        url: https://huggingface.co/docs/optimum
+cross_references: {}
+implementation_guides: {}
+metadata:
+  last_updated: '2025-06-02T23:59:26.868266'
+  sources:
+  - openai
+  - anthropic
+  - google-ai
+  - grok
+  - huggingface
+  total_code_examples: 0
+  total_sections: 0
+use_cases: {}
